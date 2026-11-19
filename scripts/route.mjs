@@ -1,4 +1,5 @@
 import { esc, svg, themes, PLANE } from "./theme.mjs";
+import { track, bezier, frames } from "./flight.mjs";
 
 const pts = [
   [70, 222, "2021", "SMK RPL", "Yogyakarta"],
@@ -10,22 +11,23 @@ const pts = [
 ];
 
 // Catmull-Rom ke kurva Bezier, per ruas, supaya bagian lalu dan depan bisa digambar beda.
-const seg = pts.map((p, i) => {
+const bz = pts.map((p, i) => {
   if (i === pts.length - 1) return null;
-  const p0 = pts[i - 1] || p, p1 = p, p2 = pts[i + 1], p3 = pts[i + 2] || p2;
-  const c1 = [p1[0] + (p2[0] - p0[0]) / 6, p1[1] + (p2[1] - p0[1]) / 6], c2 = [p2[0] - (p3[0] - p1[0]) / 6, p2[1] - (p3[1] - p1[1]) / 6];
-  return `C${c1.map((n) => n.toFixed(1))} ${c2.map((n) => n.toFixed(1))} ${p2[0]} ${p2[1]}`;
+  const p0 = pts[i - 1] || p, p2 = pts[i + 1], p3 = pts[i + 2] || p2;
+  return [[p[0], p[1]], [p[0] + (p2[0] - p0[0]) / 6, p[1] + (p2[1] - p0[1]) / 6], [p2[0] - (p3[0] - p[0]) / 6, p2[1] - (p3[1] - p[1]) / 6], [p2[0], p2[1]]];
 }).filter(Boolean);
+const seg = bz.map(([, c1, c2, p2]) => `C${c1.map((n) => n.toFixed(1))} ${c2.map((n) => n.toFixed(1))} ${p2[0]} ${p2[1]}`);
+const lap = track(bz.flatMap((b) => bezier(b, 80)));
 const start = `M${pts[0][0]} ${pts[0][1]}`;
 const past = start + " " + seg.slice(0, 4).join(" ");
 const future = `M${pts[4][0]} ${pts[4][1]} ` + seg[4];
-const full = start + " " + seg.join(" ");
 
 export function route(name) {
   const t = themes[name];
   const css = `.past{stroke-dasharray:1400;stroke-dashoffset:1400;animation:draw 2.6s .3s ease-out forwards}
 .n{transform-box:fill-box;transform-origin:center}
-@keyframes drift{from{transform:translateX(-30px)}to{transform:translateX(30px)}}.cloud{animation:drift 14s ease-in-out infinite alternate}`;
+@keyframes drift{from{transform:translateX(-30px)}to{transform:translateX(30px)}}.cloud{animation:drift 14s ease-in-out infinite alternate}
+.plane{opacity:0;animation:fly 12s linear infinite both}@keyframes fly{${frames(lap, { K: 140, fade: [0.04, 0.05] })}}`;
   const labels = pts.map(([x, y, yr, title, sub], i) => {
     const up = y < 160, ty = up ? y - 44 : y + 30, d = (0.5 + i * 0.4).toFixed(2), last = i === pts.length - 1;
     return `<g style="animation:appear .5s ${d}s ease-out both">
@@ -41,6 +43,6 @@ export function route(name) {
 <path d="${future}" fill="none" stroke="${t.muted}" stroke-width="2.5" stroke-dasharray="2 8" stroke-linecap="round" opacity=".8"/>
 <path d="${past}" fill="none" stroke="${t.accent}" stroke-width="3" stroke-linecap="round" class="past"/>
 ${labels}
-<g><path d="${PLANE}" transform="scale(.8)" fill="${t.accent}" stroke="${t.card}" stroke-width="1.2" stroke-linejoin="round"><animateMotion dur="11s" repeatCount="indefinite" rotate="auto" path="${full}"/></path></g>`;
+<g class="plane"><path d="${PLANE}" transform="scale(.8)" fill="${t.accent}" stroke="${t.card}" stroke-width="1.2" stroke-linejoin="round"/></g>`;
   return svg(960, 300, t, `<title>Flight route 2021 to 2028: SMK, Jogja Media Web, UGM, TED and GEMASTIK, ASSETS UGM, graduation</title>${body}`, css);
 }

@@ -77,7 +77,7 @@ Things real people use, or could. Tap a card.
   <img alt="GitHub activity: contributions, repositories and languages" src="assets/stats-dark.svg" width="100%">
 </picture>
 
-<sub>Drawn daily from my public GitHub data by [`scripts/stats.mjs`](scripts/stats.mjs), no third-party widgets. Watch the plane scan the year and light up each day it flies over.</sub>
+<sub>Drawn daily from my public GitHub data by [`scripts/stats.mjs`](scripts/stats.mjs), no third-party widgets. The plane flies laps: it lights up each day on the way out and switches them off on the way back.</sub>
 
 ### Route
 

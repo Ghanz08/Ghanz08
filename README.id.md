@@ -77,7 +77,7 @@ Yang dipakai orang sungguhan, atau bisa dipakai. Ketuk kartunya.
   <img alt="GitHub activity: contributions, repositories and languages" src="assets/stats-dark.svg" width="100%">
 </picture>
 
-<sub>Digambar tiap hari dari data GitHub publik oleh [`scripts/stats.mjs`](scripts/stats.mjs), tanpa widget pihak ketiga. Perhatikan pesawat yang memindai setahun dan menyalakan tiap hari yang dilewatinya.</sub>
+<sub>Digambar tiap hari dari data GitHub publik oleh [`scripts/stats.mjs`](scripts/stats.mjs), tanpa widget pihak ketiga. Pesawatnya terbang berkeliling: menyalakan tiap hari saat pergi dan memadamkannya saat kembali.</sub>
 
 ### Rute
 
