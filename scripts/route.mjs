@@ -41,6 +41,6 @@ export function route(name) {
 <path d="${future}" fill="none" stroke="${t.muted}" stroke-width="2.5" stroke-dasharray="2 8" stroke-linecap="round" opacity=".8"/>
 <path d="${past}" fill="none" stroke="${t.accent}" stroke-width="3" stroke-linecap="round" class="past"/>
 ${labels}
-<g><path d="${PLANE}" fill="${t.accent}" stroke="${t.card}" stroke-width="1.5" stroke-linejoin="round"><animateMotion dur="11s" repeatCount="indefinite" rotate="auto" path="${full}"/></path></g>`;
+<g><path d="${PLANE}" transform="scale(.8)" fill="${t.accent}" stroke="${t.card}" stroke-width="1.2" stroke-linejoin="round"><animateMotion dur="11s" repeatCount="indefinite" rotate="auto" path="${full}"/></path></g>`;
   return svg(960, 300, t, `<title>Flight route 2021 to 2028: SMK, Jogja Media Web, UGM, TED and GEMASTIK, ASSETS UGM, graduation</title>${body}`, css);
 }

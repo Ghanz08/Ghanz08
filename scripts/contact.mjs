@@ -21,7 +21,7 @@ export function contact(name, lang) {
 <text x="48" y="184" font-size="40" font-weight="700" fill="${t.accent}" letter-spacing="-1">${esc(c.b)}</text></g>
 <line x1="410" x2="930" y1="214.5" y2="214.5" stroke="${t.line}"/>${lights}
 <path d="M0 0 L0 0" fill="none"/>
-<g><path d="${PLANE}" transform="scale(1.4)" fill="${t.accent}" stroke="${t.bg}" stroke-width="1.2" stroke-linejoin="round"><animateMotion dur="6s" repeatCount="indefinite" rotate="auto" keyPoints="0;0.55;1" keyTimes="0;0.5;1" calcMode="spline" keySplines="0.4 0 0.6 1;0.2 0.6 0.4 1" path="M430 204 L640 204 C760 204 850 160 940 70"/></path></g>`;
+<g><path d="${PLANE}" transform="scale(1.05)" fill="${t.accent}" stroke="${t.bg}" stroke-width="1.2" stroke-linejoin="round"><animateMotion dur="6s" repeatCount="indefinite" rotate="auto" keyPoints="0;0.55;1" keyTimes="0;0.5;1" calcMode="spline" keySplines="0.4 0 0.6 1;0.2 0.6 0.4 1" path="M430 204 L640 204 C760 204 850 160 940 70"/></path></g>`;
   return svg(960, 230, t, `<title>${esc(c.a + " " + c.b)}</title>${body}`, css);
 }
 

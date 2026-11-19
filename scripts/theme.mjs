@@ -45,5 +45,5 @@ export function monogram(x, y, cell, color) {
   return out;
 }
 
-/** Pesawat kecil menghadap kanan, berpusat di (0,0). */
-export const PLANE = "M13 0 L-3 -9 L-1 0 L-3 9 Z M3 -3 L-6 -14 L-8 -14 L-3 -2 Z M3 3 L-6 14 L-8 14 L-3 2 Z";
+/** Pesawat penumpang tampak atas, hidung ke arah +x, berpusat di (0,0). Lebar sekitar 33, tinggi 30. */
+export const PLANE = "M15 0 C15 -2 12 -2.6 9 -2.6 L1 -2.6 L-6 -15 L-10 -15 L-6 -2.6 L-12 -2.6 L-15 -6.5 L-17.5 -6.5 L-15 -2.2 L-16.5 0 L-15 2.2 L-17.5 6.5 L-15 6.5 L-12 2.6 L-6 2.6 L-10 15 L-6 15 L1 2.6 L9 2.6 C12 2.6 15 2 15 0 Z";

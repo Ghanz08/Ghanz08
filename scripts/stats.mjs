@@ -1,7 +1,7 @@
 // Mengambil data publik dari GitHub dan menggambar assets/stats-*.svg (skyline + dial) dan assets/board-*.svg.
 // Jalan di GitHub Actions (GITHUB_TOKEN) maupun lokal (GH_TOKEN=$(gh auth token)).
 import { writeFileSync } from "node:fs";
-import { esc, svg, themes } from "./theme.mjs";
+import { esc, svg, themes, PLANE } from "./theme.mjs";
 import { board } from "./board.mjs";
 
 const LOGIN = process.env.GH_LOGIN || "Ghanz08";
@@ -103,25 +103,49 @@ function render(name) {
 <text x="${col(1)}" y="${SY + 104}" font-size="13" fill="${t.fg}" text-anchor="middle" style="animation:appear .5s .45s ease-out both">Current streak</text>
 <g style="animation:appear .5s .5s ease-out both"><text x="${col(2)}" y="${SY + 54}" font-size="34" font-weight="700" fill="${t.fg}" text-anchor="middle">${longest.n}</text><text x="${col(2)}" y="${SY + 78}" font-size="13" fill="${t.fg}" text-anchor="middle">Longest streak</text><text class="m" x="${col(2)}" y="${SY + 96}" font-size="10.5" fill="${t.muted}" text-anchor="middle">ends ${nice(longest.end ?? days[0].date)}</text></g>`;
 
-  // Heatmap standar GitHub + pesawat kertas yang melintas dan penanda hari tersibuk
-  const HX = 64, HY = 424, CELL = 13, GAP = 3, STEP = CELL + GAP;
-  let cells = "", months = "", lastM = -1, bx2 = 0, by2 = 0;
+  // Heatmap standar GitHub. Pesawat memindai tahun: sel menyala saat dilewati (teknik CSS keyframes per sel, seperti snk).
+  const HX = 64, HY = 424, CELL = 13, GAP = 3, STEP = CELL + GAP, T = 16, SWEEP = 44; // putaran 16 dtk, 44% pertama untuk terbang
+  const ym = HY + 3.5 * STEP, x0 = HX - 36, x1 = HX + 53 * STEP + 36;
+  const P = [[x0, ym + 18], [x0 + 280, ym - 70], [x1 - 280, ym + 70], [x1, ym - 18]];
+  const bez = (t) => { const u = 1 - t; return [0, 1].map((k) => u * u * u * P[0][k] + 3 * u * u * t * P[1][k] + 3 * u * t * t * P[2][k] + t * t * t * P[3][k]); };
+  const N = 800, pts = Array.from({ length: N + 1 }, (_, n) => bez(n / N)), cum = [0];
+  for (let n = 1; n <= N; n++) cum.push(cum[n - 1] + Math.hypot(pts[n][0] - pts[n - 1][0], pts[n][1] - pts[n - 1][1]));
+  const at = (f) => { const tg = f * cum[N]; let n = 1; while (n < N && cum[n] < tg) n++; const r = (tg - cum[n - 1]) / (cum[n] - cum[n - 1] || 1); return [pts[n - 1][0] + (pts[n][0] - pts[n - 1][0]) * r, pts[n - 1][1] + (pts[n][1] - pts[n - 1][1]) * r]; };
+  const fAtX = (x) => { let lo = 0, hi = 1; for (let n = 0; n < 24; n++) { const m = (lo + hi) / 2; if (at(m)[0] < x) lo = m; else hi = m; } return hi; };
+  const K = 64, planeKf = Array.from({ length: K + 1 }, (_, n) => {
+    const f = n / K, [px, py] = at(f), [ax, ay] = at(Math.max(0, f - 0.004)), [bx, by] = at(Math.min(1, f + 0.004));
+    const op = n === 0 ? "opacity:0;" : n === 1 ? "opacity:1;" : n === K ? "opacity:1;" : "";
+    return `${(SWEEP * f).toFixed(2)}%{transform:translate(${px.toFixed(1)}px,${py.toFixed(1)}px) rotate(${(Math.atan2(by - ay, bx - ax) * 180 / Math.PI).toFixed(1)}deg);${op}}`;
+  }).join("");
+
+  let cells = "", months = "", lastM = -1, bx2 = 0, by2 = 0, busyPct = 0, colKf = "";
   weeks.forEach((w, c) => {
-    const first = w.contributionDays[0]; const m = +first.date.slice(5, 7);
+    const first = w.contributionDays[0], m = +first.date.slice(5, 7);
     if (m !== lastM && c < weeks.length - 2) { months += `<text class="m" x="${HX + c * STEP}" y="${HY - 10}" font-size="10.5" fill="${t.muted}">${MON[m - 1]}</text>`; lastM = m; }
+    const pc = SWEEP * fAtX(HX + c * STEP + CELL / 2);
+    colKf += `@keyframes k${c}{0%,${Math.max(0, pc - 0.4).toFixed(2)}%{opacity:0}${(pc + 1.2).toFixed(2)}%,86%{opacity:1}95%,100%{opacity:0}}`;
+    let base = "", lit = "";
     w.contributionDays.forEach((d, r) => {
       const x = HX + c * STEP, y = HY + r * STEP;
-      if (d.date === busiest.date) { bx2 = x + CELL / 2; by2 = y; }
-      cells += `<rect x="${x}" y="${y}" width="${CELL}" height="${CELL}" rx="2.5" fill="${G[level(d.contributionCount)]}" style="animation:appear .4s ${(0.2 + c * 0.02).toFixed(2)}s ease-out both"/>`;
+      base += `<rect x="${x}" y="${y}" width="${CELL}" height="${CELL}" rx="2.5" fill="${G[0]}"/>`;
+      if (d.contributionCount > 0) lit += `<rect x="${x}" y="${y}" width="${CELL}" height="${CELL}" rx="2.5" fill="${G[level(d.contributionCount)]}"/>`;
+      if (d.date === busiest.date) { bx2 = x + CELL / 2; by2 = y; busyPct = pc; }
     });
+    cells += base + (lit ? `<g style="animation:k${c} ${T}s linear infinite">${lit}</g>` : "");
   });
+  const css = `${colKf}
+.plane{opacity:0;animation:fly ${T}s linear infinite}@keyframes fly{${planeKf}${(SWEEP + 1.2).toFixed(2)}%,100%{opacity:0}}
+.trail{opacity:0;stroke-dasharray:1;animation:trail ${T}s linear infinite}@keyframes trail{0%{stroke-dashoffset:1;opacity:.55}${SWEEP}%{stroke-dashoffset:0;opacity:.55}86%{opacity:.55}95%,100%{stroke-dashoffset:0;opacity:0}}
+.burst{opacity:0;transform-box:fill-box;transform-origin:center;animation:burst ${T}s linear infinite}@keyframes burst{0%,${busyPct.toFixed(2)}%{opacity:0;transform:scale(.3)}${(busyPct + 0.3).toFixed(2)}%{opacity:.95;transform:scale(.5)}${(busyPct + 5).toFixed(2)}%,100%{opacity:0;transform:scale(3.4)}}`;
   const dayLbl = [["Mon", 1], ["Wed", 3], ["Fri", 5]].map(([l, r]) => `<text class="m" x="28" y="${HY + r * STEP + 10}" font-size="10" fill="${t.muted}">${l}</text>`).join("");
   const lg = [0, 1, 2, 3, 4].map((l, i) => `<rect x="${786 + i * 16}" y="${HY + 7 * STEP + 8}" width="${CELL}" height="${CELL}" rx="2.5" fill="${G[l]}"/>`).join("");
   const call = `<line x1="${bx2}" x2="${bx2}" y1="${by2 - 2}" y2="${HY - 26}" stroke="${t.muted}" stroke-dasharray="2 3"/><text class="m" x="${Math.min(bx2, 820)}" y="${HY - 30}" font-size="10.5" fill="${t.fg}" text-anchor="${bx2 > 820 ? "end" : "middle"}">busiest day · ${nice(busiest.date)} · ${busiest.contributionCount}</text>`;
-  const flight = `M${HX} ${HY + 7 * STEP + 34} C${HX + 240} ${HY + 7 * STEP + 20} ${HX + 540} ${HY + 7 * STEP + 48} ${HX + 53 * STEP - 4} ${HY + 7 * STEP + 28}`;
-  const plane = `<path d="${flight}" fill="none" stroke="${t.muted}" stroke-width="1.2" stroke-dasharray="2 6" opacity=".45"/><g opacity=".95"><path d="M0 0 L16 -5 L11 0 L16 5 Z M11 0 L5 0 L7 -3 Z" fill="${t.accent}"><animateMotion dur="9s" repeatCount="indefinite" rotate="auto" path="${flight}"/></path></g>`;
+  const flight = `M${P[0][0]} ${P[0][1]} C${P[1][0]} ${P[1][1]} ${P[2][0]} ${P[2][1]} ${P[3][0]} ${P[3][1]}`;
+  const plane = `<path class="trail" d="${flight}" pathLength="1" fill="none" stroke="${t.accent}" stroke-width="1.6" stroke-linecap="round"/>
+<circle class="burst" cx="${bx2}" cy="${by2 + CELL / 2}" r="9" fill="none" stroke="${t.good}" stroke-width="2"/>
+<g class="plane"><path d="${PLANE}" transform="scale(.9)" fill="${t.accent}" stroke="${t.card}" stroke-width="1.3" stroke-linejoin="round"/></g>`;
 
-  const body = `${card(0, 0, PW, 214)}${card(24 + PW, 0, PW - 1, 214)}${card(0, 230, 959, 118)}${card(0, 364, 959, 214)}
+  const body = `${card(0, 0, PW, 214)}${card(24 + PW, 0, PW - 1, 214)}${card(0, 230, 959, 118)}${card(0, 364, 959, 190)}
 <text x="28" y="38" font-size="15" font-weight="700" fill="${t.accent}">GitHub stats</text>${statRows}
 <text x="${L0}" y="38" font-size="15" font-weight="700" fill="${t.accent}">Top languages</text>${segs}${legend}
 ${streak}
@@ -129,7 +153,7 @@ ${streak}
 <text class="m" x="770" y="${HY + 7 * STEP + 19}" font-size="10" fill="${t.muted}" text-anchor="end">Less</text>${lg}<text class="m" x="${786 + 5 * 16 + 4}" y="${HY + 7 * STEP + 19}" font-size="10" fill="${t.muted}">More</text>
 ${plane}
 `;
-  return svg(960, 580, t, `<title>GitHub stats of ${esc(LOGIN)}: contributions, streaks, top languages and a year of activity</title>${body}`, "");
+  return svg(960, 556, t, `<title>GitHub stats of ${esc(LOGIN)}: contributions, streaks, top languages and a year of activity</title>${body}`, css);
 }
 
 for (const n of ["dark", "light"]) {

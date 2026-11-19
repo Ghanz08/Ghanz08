@@ -18,10 +18,10 @@ export function board(name, pushes) {
 <text class="m" x="196" y="${y - 3}" font-size="13" font-weight="700" fill="${AMBER}">${esc(cut(r.repo, 20))}</text>
 <text class="m" x="410" y="${y - 3}" font-size="13" fill="${AMBER}">${esc(cut(r.msg, 40))}</text>
 <text class="m" x="920" y="${y - 3}" font-size="12" font-weight="700" fill="#34d399" text-anchor="end">PUSHED</text>
-<line x1="20" x2="940" y1="${y - 8}" y2="${y - 8}" stroke="${BG}" stroke-width="1.5"/></g>`;
+<line x1="20" x2="940" y1="${y - 8}" y2="${y - 8}" stroke="${BG}" stroke-width="1" opacity=".45"/></g>`;
   }).join("\n");
   const body = `<rect x=".5" y=".5" width="959" height="${H - 1}" rx="16" fill="${BG}" stroke="${LINE}"/>
-<path d="${PLANE}" transform="translate(40 34) scale(1.1)" fill="${AMBER}"/>
+<path d="${PLANE}" transform="translate(42 34) scale(.75)" fill="${AMBER}"/>
 <text class="m" x="64" y="40" font-size="14" font-weight="700" letter-spacing="3" fill="${AMBER}">DEPARTURES</text>
 <text class="m" x="920" y="40" font-size="11" letter-spacing="1" fill="${DIM}" text-anchor="end">LATEST PUSHES · WIB</text>
 <text class="m" x="36" y="76" font-size="10" letter-spacing="1.5" fill="${DIM}">TIME</text><text class="m" x="196" y="76" font-size="10" letter-spacing="1.5" fill="${DIM}">DESTINATION</text>
