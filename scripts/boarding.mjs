@@ -1,14 +1,16 @@
 import { esc, svg, themes, PLANE } from "./theme.mjs";
 import { logo } from "./logo.mjs";
 
-// Lepas landas di garis lurus. Tiap pesawat: masuk landasan, menunggu sebentar, dipercepat sambil membesar, lalu memudar.
-// Hanya beberapa keyframe dengan cubic-bezier per ruas supaya kecepatannya mulus (bukan puluhan potongan linear).
-// Satu pesawat per siklus: pesawat baru baru muncul setelah yang terbang benar-benar hilang.
-const T = 6.5, PLANES = 1, Y = 113, XS = 146, X0 = 172, X1 = 356;
-const OUT = "cubic-bezier(.2,.75,.3,1)", IN = "cubic-bezier(.5,.04,.9,.55)";
-const px = (y0, y1) => `0%{transform:translate(${XS}px,${y0}px);animation-timing-function:${OUT}}12%{transform:translate(${X0}px,${y0}px)}24%{transform:translate(${X0}px,${y0}px);animation-timing-function:${IN}}88%,100%{transform:translate(${X1}px,${y1}px)}`;
-const ps = (a, b) => `0%{transform:scale(.6)}24%{transform:scale(.6);animation-timing-function:${IN}}88%,100%{transform:scale(${b})}`;
-const po = (m, e) => `0%{opacity:0;animation-timing-function:ease-out}8%{opacity:${m}}24%{opacity:${m};animation-timing-function:ease-in}64%{opacity:${e}}88%,100%{opacity:0}`;
+// Lepas landas di garis lurus. Tiap pesawat: masuk landasan, menunggu sebentar, dipercepat sambil membesar, lalu memudar di akhir.
+// Pesawat baru muncul saat yang lama hampir hilang (tumpang tindih OV detik), supaya gerak tidak berhenti.
+// Dua pesawat bergantian: jeda D = L - OV, durasi putaran T = 2 * D.
+const L = 7, OV = 0.8, D = L - OV, T = 2 * D, PLANES = 2, Y = 113, XS = 146, X0 = 172, X1 = 334;
+const pct = (sec) => ((100 * sec) / T).toFixed(2) + "%";
+// Percepatan konstan berarti posisi ~ t^2 dan ukuran ~ t^3; kedua kurva ini persis cubic-bezier(1/3,0,2/3,1/3) dan (1/3,0,2/3,0).
+const OUT = "cubic-bezier(.33,1,.68,1)", QUAD = "cubic-bezier(.3333,0,.6667,.3333)", CUBE = "cubic-bezier(.3333,0,.6667,0)", SINE = "cubic-bezier(.37,0,.63,1)";
+const px = (y0, y1) => `0%{transform:translate(${XS}px,${y0}px);animation-timing-function:${OUT}}${pct(0.7)}{transform:translate(${X0}px,${y0}px)}${pct(1.9)}{transform:translate(${X0}px,${y0}px);animation-timing-function:${QUAD}}${pct(L)},100%{transform:translate(${X1}px,${y1}px)}`;
+const ps = (a, b) => `0%{transform:scale(.6)}${pct(1.9)}{transform:scale(.6);animation-timing-function:${CUBE}}${pct(L)},100%{transform:scale(${b})}`;
+const po = (m, e) => `0%{opacity:0;animation-timing-function:${OUT}}${pct(0.7)}{opacity:${m}}${pct(1.9)}{opacity:${m};animation-timing-function:linear}${pct(L - 0.9)}{opacity:${e};animation-timing-function:${SINE}}${pct(L)},100%{opacity:0}`;
 
 // Warna dan logo sayap diambil dari desain Figma SkyBase.
 const SB = { navy: "#174394", sky: "#54A4D9", mid: "#2a6bc0" };
@@ -34,7 +36,7 @@ export function boarding(name, lang) {
   const field = (x, y, label, val) => `<text class="m" x="${x}" y="${y}" font-size="9.5" letter-spacing="1" fill="${t.muted}">${esc(label)}</text>
 <text class="m" x="${x}" y="${y + 20}" font-size="14" font-weight="700" fill="${t.fg}">${esc(val)}</text>`;
   const css = `@keyframes px{${px(Y, Y)}}@keyframes ps{${ps(0.6, 1.7)}}@keyframes po{${po(1, 1)}}
-@keyframes sx{${px(Y + 1, Y + 16)}}@keyframes ss{${ps(0.6, 1.5)}}@keyframes so{${po(0.28, 0.1)}}
+@keyframes sx{${px(Y + 1, Y + 16)}}@keyframes ss{${ps(0.6, 1.5)}}@keyframes so{${po(0.28, 0.16)}}
 .px,.sx{animation:px ${T}s linear infinite both}.sx{animation-name:sx}
 .ps{opacity:0;animation:ps ${T}s linear infinite both,po ${T}s linear infinite both}
 .ss{opacity:0;animation:ss ${T}s linear infinite both,so ${T}s linear infinite both}
@@ -55,7 +57,7 @@ ${logo(24, 8, 26, { main: "#ffffff", accent: "#cfe6fa" }, "bp")}
 <text class="m" x="520" y="144" font-size="10.5" fill="${t.muted}" text-anchor="end">${esc(c.to)}</text></g>
 <line x1="160" x2="392" y1="${Y}" y2="${Y}" stroke="${t.accent2}" stroke-width="2" stroke-dasharray="3 7" stroke-linecap="round" class="lights"/>
 ${Array.from({ length: PLANES }, (_, k) => {
-    const d = k * (T / PLANES), st = `style="animation-delay:${d}s"`;
+    const d = k * D, st = `style="animation-delay:${d}s"`;
     return `<g class="sx" ${st}><g class="ss" ${st}><path d="${PLANE}" fill="${name === "dark" ? "#000" : t.fg}"/></g></g><g class="px" ${st}><g class="ps" ${st}><path d="${PLANE}" fill="${t.accent}" stroke="${t.card}" stroke-width="1.2" stroke-linejoin="round"/></g></g>`;
   }).join("")}
 
