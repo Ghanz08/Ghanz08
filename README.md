@@ -8,11 +8,11 @@
 
 I study software engineering at Universitas Gadjah Mada in Yogyakarta and build products end to end: the data model, the API, the interface, the deployment, and an AI model in the loop when it actually earns its place. Registration platforms, inventory systems and mobile apps that real people log into, not demos.
 
-```text
-$ whoami --stats
-4+ years at the keyboard  ·  10+ projects shipped
-GEMASTIK XVIII finalist  ·  4+ tech organisations
-```
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="assets/whoami-en-dark.svg">
+  <source media="(prefers-color-scheme: light)" srcset="assets/whoami-en-light.svg">
+  <img alt="4+ years coding, 10+ projects shipped, GEMASTIK XVIII finalist, 4+ tech organisations" src="assets/whoami-en-dark.svg" width="100%">
+</picture>
 
 ### Activity
 
@@ -97,14 +97,13 @@ Things real people use, or could. Tap a card.
 
 ### Leading and teaching
 
-| Role | Where | When | What |
-| :-- | :-- | :-- | :-- |
-| **Head of Tech Development Division** | ASSETS UGM | Mar 2026 to now | UI/UX, development and data science / AI across three subdivisions |
-| **Head of Software Research & Dev** | KOMATIK UGM | Nov 2025 to now | Software training, workshops and technical projects |
-| **Hacker Backend & Academic Mentor** | GDGoC UGM | Nov 2024 to now | Backend APIs, and mentoring on databases and backend principles |
-| **Assistant Lecturer, project mentor** | Universitas Gadjah Mada | 2025 to now | Programming practicum, then mentoring PAD student teams |
-| **Event Lead** | Hackathon Refactory x UGM | Jan to Feb 2026 | Led the UGM leg of a 24+ hour national AI hackathon |
-| **IT Division Coordinator** | Tech Enthusiast Day | May to Nov 2025 | Led 8 developers on the national competition portal |
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="assets/roles-dark.svg">
+  <source media="(prefers-color-scheme: light)" srcset="assets/roles-light.svg">
+  <img alt="Roles by organisation from 2024 to 2026" src="assets/roles-dark.svg" width="100%">
+</picture>
+
+<sub>Each lane is an organisation, each bar a role, measured in months. Solid is where I am now.</sub>
 
 ### Recognition
 
@@ -112,10 +111,30 @@ Things real people use, or could. Tap a card.
 - **IFEST Unpad hackathon, top 15** (2026): national finals.
 - **Staff of the 3 Months** (2025): KMTEDI UGM, for improving EatsTedi, the internal canteen app.
 
-### Say hi
+<br>
 
-Open to opportunities. The fastest way in is my site's contact page.
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="assets/contact-en-dark.svg">
+  <source media="(prefers-color-scheme: light)" srcset="assets/contact-en-light.svg">
+  <img alt="Got a messy workflow? Let's make it dependable." src="assets/contact-en-dark.svg" width="100%">
+</picture>
 
-[**ghanizulhusni.com**](https://ghanizulhusni.com)   ·   [LinkedIn](https://www.linkedin.com/in/ghanizulhusni)   ·   [Instagram](https://www.instagram.com/zulhusnibahri_06/)
+<p align="center">
+  <a href="https://ghanizulhusni.com"><picture>
+  <source media="(prefers-color-scheme: dark)" srcset="assets/btn-site-dark.svg">
+  <source media="(prefers-color-scheme: light)" srcset="assets/btn-site-light.svg">
+  <img alt="ghanizulhusni.com" src="assets/btn-site-dark.svg" height="48">
+</picture></a>
+  <a href="https://www.linkedin.com/in/ghanizulhusni"><picture>
+  <source media="(prefers-color-scheme: dark)" srcset="assets/btn-linkedin-dark.svg">
+  <source media="(prefers-color-scheme: light)" srcset="assets/btn-linkedin-light.svg">
+  <img alt="LinkedIn" src="assets/btn-linkedin-dark.svg" height="48">
+</picture></a>
+  <a href="https://www.instagram.com/zulhusnibahri_06/"><picture>
+  <source media="(prefers-color-scheme: dark)" srcset="assets/btn-instagram-dark.svg">
+  <source media="(prefers-color-scheme: light)" srcset="assets/btn-instagram-light.svg">
+  <img alt="Instagram" src="assets/btn-instagram-dark.svg" height="48">
+</picture></a>
+</p>
 
-<sub>Every graphic here is hand-built SVG that lives in this repo, in light and dark. Source in [`scripts/`](scripts/).</sub>
+<p align="center"><sub>Every graphic here is hand-built SVG that lives in this repo, in light and dark. Source in <a href="scripts/"><code>scripts/</code></a>.</sub></p>

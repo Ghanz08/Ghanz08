@@ -8,11 +8,11 @@
 
 Saya kuliah Teknologi Rekayasa Perangkat Lunak di Universitas Gadjah Mada, Yogyakarta, dan membangun produk dari ujung ke ujung: model data, API, antarmuka, deployment, plus model AI bila memang layak dipakai. Platform pendaftaran, sistem inventori, dan aplikasi mobile yang dipakai orang sungguhan, bukan sekadar demo.
 
-```text
-$ whoami --stats
-4+ tahun ngoding  ·  10+ proyek rilis
-Finalis GEMASTIK XVIII  ·  4+ organisasi teknologi
-```
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="assets/whoami-id-dark.svg">
+  <source media="(prefers-color-scheme: light)" srcset="assets/whoami-id-light.svg">
+  <img alt="4+ years coding, 10+ projects shipped, GEMASTIK XVIII finalist, 4+ tech organisations" src="assets/whoami-id-dark.svg" width="100%">
+</picture>
 
 ### Aktivitas
 
@@ -97,14 +97,13 @@ Yang dipakai orang sungguhan, atau bisa dipakai. Ketuk kartunya.
 
 ### Memimpin dan mengajar
 
-| Peran | Di mana | Kapan | Apa |
-| :-- | :-- | :-- | :-- |
-| **Kepala Divisi Tech Development** | ASSETS UGM | Mar 2026 sekarang | UI/UX, pengembangan, dan data science / AI di tiga subdivisi |
-| **Kepala Software Research & Dev** | KOMATIK UGM | Nov 2025 sekarang | Pelatihan software, workshop, dan proyek teknis |
-| **Hacker Backend & Academic Mentor** | GDGoC UGM | Nov 2024 sekarang | API backend, serta mentoring basis data dan prinsip backend |
-| **Asisten Dosen, mentor proyek** | Universitas Gadjah Mada | 2025 sekarang | Praktikum pemrograman, lalu mentoring tim PAD |
-| **Event Lead** | Hackathon Refactory x UGM | Jan sampai Feb 2026 | Memimpin seri UGM hackathon AI nasional 24+ jam |
-| **Koordinator Divisi IT** | Tech Enthusiast Day | Mei sampai Nov 2025 | Memimpin 8 developer untuk portal kompetisi nasional |
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="assets/roles-dark.svg">
+  <source media="(prefers-color-scheme: light)" srcset="assets/roles-light.svg">
+  <img alt="Roles by organisation from 2024 to 2026" src="assets/roles-dark.svg" width="100%">
+</picture>
+
+<sub>Satu lajur satu organisasi, satu batang satu peran, dihitung per bulan. Yang pekat adalah peran saya sekarang.</sub>
 
 ### Penghargaan
 
@@ -112,10 +111,30 @@ Yang dipakai orang sungguhan, atau bisa dipakai. Ketuk kartunya.
 - **Hackathon IFEST Unpad, 15 besar** (2026): final nasional.
 - **Staff of the 3 Months** (2025): KMTEDI UGM, atas perbaikan EatsTedi, aplikasi kantin internal.
 
-### Sapa saya
+<br>
 
-Terbuka untuk peluang. Cara tercepat lewat halaman kontak di situs saya.
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="assets/contact-id-dark.svg">
+  <source media="(prefers-color-scheme: light)" srcset="assets/contact-id-light.svg">
+  <img alt="Got a messy workflow? Let's make it dependable." src="assets/contact-id-dark.svg" width="100%">
+</picture>
 
-[**ghanizulhusni.com**](https://ghanizulhusni.com)   ·   [LinkedIn](https://www.linkedin.com/in/ghanizulhusni)   ·   [Instagram](https://www.instagram.com/zulhusnibahri_06/)
+<p align="center">
+  <a href="https://ghanizulhusni.com"><picture>
+  <source media="(prefers-color-scheme: dark)" srcset="assets/btn-site-dark.svg">
+  <source media="(prefers-color-scheme: light)" srcset="assets/btn-site-light.svg">
+  <img alt="ghanizulhusni.com" src="assets/btn-site-dark.svg" height="48">
+</picture></a>
+  <a href="https://www.linkedin.com/in/ghanizulhusni"><picture>
+  <source media="(prefers-color-scheme: dark)" srcset="assets/btn-linkedin-dark.svg">
+  <source media="(prefers-color-scheme: light)" srcset="assets/btn-linkedin-light.svg">
+  <img alt="LinkedIn" src="assets/btn-linkedin-dark.svg" height="48">
+</picture></a>
+  <a href="https://www.instagram.com/zulhusnibahri_06/"><picture>
+  <source media="(prefers-color-scheme: dark)" srcset="assets/btn-instagram-dark.svg">
+  <source media="(prefers-color-scheme: light)" srcset="assets/btn-instagram-light.svg">
+  <img alt="Instagram" src="assets/btn-instagram-dark.svg" height="48">
+</picture></a>
+</p>
 
-<sub>Semua grafik di sini adalah SVG buatan tangan yang tersimpan di repo ini, dalam mode terang dan gelap. Sumbernya di [`scripts/`](scripts/).</sub>
+<p align="center"><sub>Semua grafik di sini adalah SVG buatan tangan yang tersimpan di repo ini, dalam mode terang dan gelap. Sumbernya di <a href="scripts/"><code>scripts/</code></a>.</sub></p>
