@@ -1,13 +1,14 @@
 import { esc, svg, themes, PLANE } from "./theme.mjs";
 import { logo } from "./logo.mjs";
 
-// Lepas landas di garis lurus: pesawat dipercepat, lalu "naik" dengan membesar (makin dekat ke penonton) dan memudar.
-// Bayangannya tertinggal di landasan. Tiga pesawat bergiliran, tiap 2 detik.
-const T = 6, PLANES = 3, K = 70, Y = 113, X0 = 172, X1 = 378;
-const fade = (u) => (u < 0.05 ? u / 0.05 : u > 0.86 ? (1 - u) / 0.14 : 1);
-const frame = (fn) => Array.from({ length: K + 1 }, (_, n) => `${((100 * n) / K).toFixed(2)}%{${fn(n / K)}}`).join("");
-const planeKf = frame((u) => `transform:translate(${(X0 + (X1 - X0) * u ** 1.9).toFixed(1)}px,${Y}px) scale(${(0.6 + 1.3 * u ** 2.4).toFixed(2)});opacity:${fade(u).toFixed(2)}`);
-const shadowKf = frame((u) => `transform:translate(${(X0 + (X1 - X0) * u ** 1.9).toFixed(1)}px,${(Y + 1 + 15 * u ** 2).toFixed(1)}px) scale(${(0.6 + 1.1 * u ** 2.4).toFixed(2)});opacity:${(fade(u) * 0.3 * (1 - 0.75 * u)).toFixed(2)}`);
+// Lepas landas di garis lurus. Tiap pesawat: masuk landasan, menunggu sebentar, dipercepat sambil membesar, lalu memudar.
+// Hanya beberapa keyframe dengan cubic-bezier per ruas supaya kecepatannya mulus (bukan puluhan potongan linear).
+// Dua pesawat bergantian; yang kedua baru muncul ketika yang pertama sudah jauh dari garis start.
+const T = 8, PLANES = 2, Y = 113, XS = 146, X0 = 172, X1 = 356;
+const OUT = "cubic-bezier(.2,.75,.3,1)", IN = "cubic-bezier(.5,.04,.9,.55)";
+const px = (y0, y1) => `0%{transform:translate(${XS}px,${y0}px);animation-timing-function:${OUT}}14%{transform:translate(${X0}px,${y0}px)}28%{transform:translate(${X0}px,${y0}px);animation-timing-function:${IN}}86%,100%{transform:translate(${X1}px,${y1}px)}`;
+const ps = (a, b) => `0%{transform:scale(.6)}28%{transform:scale(.6);animation-timing-function:${IN}}86%,100%{transform:scale(${b})}`;
+const po = (m, e) => `0%{opacity:0;animation-timing-function:ease-out}10%{opacity:${m}}28%{opacity:${m};animation-timing-function:ease-in}68%{opacity:${e}}84%,100%{opacity:0}`;
 
 // Warna dan logo sayap diambil dari desain Figma SkyBase.
 const SB = { navy: "#174394", sky: "#54A4D9", mid: "#2a6bc0" };
@@ -32,8 +33,11 @@ export function boarding(name, lang) {
   }
   const field = (x, y, label, val) => `<text class="m" x="${x}" y="${y}" font-size="9.5" letter-spacing="1" fill="${t.muted}">${esc(label)}</text>
 <text class="m" x="${x}" y="${y + 20}" font-size="14" font-weight="700" fill="${t.fg}">${esc(val)}</text>`;
-  const css = `@keyframes fly{${planeKf}}@keyframes shade{${shadowKf}}
-.plane{opacity:0;animation:fly ${T}s linear infinite both}.shadow{opacity:0;animation:shade ${T}s linear infinite both}
+  const css = `@keyframes px{${px(Y, Y)}}@keyframes ps{${ps(0.6, 1.7)}}@keyframes po{${po(1, 1)}}
+@keyframes sx{${px(Y + 1, Y + 16)}}@keyframes ss{${ps(0.6, 1.5)}}@keyframes so{${po(0.28, 0.1)}}
+.px,.sx{animation:px ${T}s linear infinite both}.sx{animation-name:sx}
+.ps{opacity:0;animation:ps ${T}s linear infinite both,po ${T}s linear infinite both}
+.ss{opacity:0;animation:ss ${T}s linear infinite both,so ${T}s linear infinite both}
 @keyframes chase{to{stroke-dashoffset:-20}}.lights{animation:chase 1.1s linear infinite}`;
   const body = `<defs><clipPath id="c"><rect x="0" y="0" width="960" height="${H}" rx="18"/></clipPath>
 <linearGradient id="hd" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="${SB.mid}"/><stop offset="1" stop-color="${SB.navy}"/></linearGradient></defs>
@@ -51,8 +55,8 @@ ${logo(24, 8, 26, { main: "#ffffff", accent: "#cfe6fa" }, "bp")}
 <text class="m" x="520" y="144" font-size="10.5" fill="${t.muted}" text-anchor="end">${esc(c.to)}</text></g>
 <line x1="160" x2="392" y1="${Y}" y2="${Y}" stroke="${t.accent2}" stroke-width="2" stroke-dasharray="3 7" stroke-linecap="round" class="lights"/>
 ${Array.from({ length: PLANES }, (_, k) => {
-    const d = k * (T / PLANES);
-    return `<g class="shadow" style="animation-delay:${d}s"><path d="${PLANE}" fill="${name === "dark" ? "#000" : t.fg}"/></g><g class="plane" style="animation-delay:${d}s"><path d="${PLANE}" fill="${t.accent}" stroke="${t.card}" stroke-width="1.2" stroke-linejoin="round"/></g>`;
+    const d = k * (T / PLANES), st = `style="animation-delay:${d}s"`;
+    return `<g class="sx" ${st}><g class="ss" ${st}><path d="${PLANE}" fill="${name === "dark" ? "#000" : t.fg}"/></g></g><g class="px" ${st}><g class="ps" ${st}><path d="${PLANE}" fill="${t.accent}" stroke="${t.card}" stroke-width="1.2" stroke-linejoin="round"/></g></g>`;
   }).join("")}
 
 <g style="animation:appear .5s .5s ease-out both">${field(32, 176, c.pax, c.v[0])}${field(300, 176, c.prog, c.v[1])}</g>

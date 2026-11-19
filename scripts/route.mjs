@@ -27,7 +27,7 @@ export function route(name) {
   const css = `.past{stroke-dasharray:1400;stroke-dashoffset:1400;animation:draw 2.6s .3s ease-out forwards}
 .n{transform-box:fill-box;transform-origin:center}
 @keyframes drift{from{transform:translateX(-30px)}to{transform:translateX(30px)}}.cloud{animation:drift 14s ease-in-out infinite alternate}
-.plane{opacity:0;animation:fly 12s linear infinite both}@keyframes fly{${frames(lap, { K: 140, fade: [0.04, 0.05] })}}`;
+.plane{opacity:0;animation:fly 12s linear infinite both}@keyframes fly{${frames(lap, { K: 240, fade: [0.04, 0.05] })}}`;
   const labels = pts.map(([x, y, yr, title, sub], i) => {
     const up = y < 160, ty = up ? y - 44 : y + 30, d = (0.5 + i * 0.4).toFixed(2), last = i === pts.length - 1;
     return `<g style="animation:appear .5s ${d}s ease-out both">

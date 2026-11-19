@@ -111,7 +111,7 @@ function render(name) {
   const arc = (cx, a0, a1, n = 70) => Array.from({ length: n + 1 }, (_, i) => { const th = a0 + ((a1 - a0) * i) / n; return [cx + TR * Math.cos(th), yM + TR * Math.sin(th)]; });
   const lap = track([[xL, yT], [xR, yT], ...arc(xR, -Math.PI / 2, Math.PI / 2), [xR, yB], [xL, yB], ...arc(xL, Math.PI / 2, (3 * Math.PI) / 2)]);
   const fOn = (x) => (x - xL) / lap.total, fOff = (x) => ((xR - xL) + Math.PI * TR + (xR - x)) / lap.total;
-  const planeKf = frames(lap, { K: 240 });
+  const planeKf = frames(lap, { K: 520 });
 
   let cells = "", months = "", lastM = -1, bx2 = 0, by2 = 0, busyPct = 0, colKf = "";
   weeks.forEach((w, c) => {
