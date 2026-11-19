@@ -1,0 +1,57 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="170" viewBox="0 0 960 170" role="img">
+<style>
+text{font-family:system-ui,-apple-system,'Segoe UI',Roboto,Helvetica,Arial,sans-serif}
+.m{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,'Liberation Mono',monospace}
+@keyframes appear{from{opacity:0;transform:translateY(6px)}}
+@keyframes blink{50%{opacity:0}}
+@keyframes draw{to{stroke-dashoffset:0}}
+@keyframes pop{from{opacity:0;transform:scale(.4)}}
+@keyframes shine{from{transform:translateX(-60px) skewX(-20deg)}to{transform:translateX(70px) skewX(-20deg)}}
+.sh{animation:shine 3.6s ease-in-out infinite}
+@keyframes bob{50%{transform:translateY(-3px)}}.pin{animation:bob 4.5s ease-in-out infinite}
+@media (prefers-reduced-motion:reduce){*{animation:none!important}}
+</style>
+<title>GEMASTIK XVIII, IFEST Unpad, Staff of the 3 Months</title>
+<rect x=".5" y=".5" width="959" height="169" rx="16" fill="#ffffff" stroke="#e2e5f0"/><g style="animation:appear .5s 0.2s ease-out both">
+<defs><linearGradient id="m0" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#fde68a"/><stop offset="1" stop-color="#d97706"/></linearGradient>
+<clipPath id="k0"><circle cx="60" cy="82" r="35"/></clipPath></defs>
+<ellipse cx="60" cy="134" rx="30" ry="5" fill="#090d16" opacity=".10"/>
+<g class="pin" style="animation-delay:0s">
+<circle cx="60" cy="82" r="42" fill="url(#m0)"/>
+<circle cx="60" cy="82" r="35" fill="#4f46e5"/>
+<circle cx="60" cy="82" r="35" fill="none" stroke="#fff" stroke-opacity=".35" stroke-width="1.5" stroke-dasharray="2 4"/>
+<text x="60" y="90" font-size="22" font-weight="800" fill="#ffffff" text-anchor="middle" letter-spacing="-.5">XVIII</text>
+<g clip-path="url(#k0)"><rect class="sh" style="animation-delay:0s" x="52" y="42" width="14" height="80" fill="#fff" opacity=".35"/></g></g>
+<text x="116" y="68" font-size="15" font-weight="700" fill="#090d16">GEMASTIK XVIII</text>
+<text class="m" x="116" y="88" font-size="11" fill="#4f46e5">National finalist · 2025</text>
+<text x="116" y="108" font-size="11.5" fill="#5b6478">Team OTW JUARAA, Software</text>
+<text x="116" y="124" font-size="11.5" fill="#5b6478">Development</text></g>
+<g style="animation:appear .5s 0.4s ease-out both">
+<defs><linearGradient id="m1" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#e5e7eb"/><stop offset="1" stop-color="#6b7280"/></linearGradient>
+<clipPath id="k1"><circle cx="378" cy="82" r="35"/></clipPath></defs>
+<ellipse cx="378" cy="134" rx="30" ry="5" fill="#090d16" opacity=".10"/>
+<g class="pin" style="animation-delay:0.7s">
+<circle cx="378" cy="82" r="42" fill="url(#m1)"/>
+<circle cx="378" cy="82" r="35" fill="#4f46e5"/>
+<circle cx="378" cy="82" r="35" fill="none" stroke="#fff" stroke-opacity=".35" stroke-width="1.5" stroke-dasharray="2 4"/>
+<text x="378" y="94" font-size="30" font-weight="800" fill="#ffffff" text-anchor="middle" letter-spacing="-.5">15</text>
+<g clip-path="url(#k1)"><rect class="sh" style="animation-delay:0.9s" x="370" y="42" width="14" height="80" fill="#fff" opacity=".35"/></g></g>
+<text x="434" y="68" font-size="15" font-weight="700" fill="#090d16">IFEST Unpad</text>
+<text class="m" x="434" y="88" font-size="11" fill="#4f46e5">Hackathon top 15 · 2026</text>
+<text x="434" y="108" font-size="11.5" fill="#5b6478">National finals, Universitas</text>
+<text x="434" y="124" font-size="11.5" fill="#5b6478">Padjadjaran</text></g>
+<g style="animation:appear .5s 0.6s ease-out both">
+<defs><linearGradient id="m2" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#fdba74"/><stop offset="1" stop-color="#c2410c"/></linearGradient>
+<clipPath id="k2"><circle cx="696" cy="82" r="35"/></clipPath></defs>
+<ellipse cx="696" cy="134" rx="30" ry="5" fill="#090d16" opacity=".10"/>
+<g class="pin" style="animation-delay:1.4s">
+<circle cx="696" cy="82" r="42" fill="url(#m2)"/>
+<circle cx="696" cy="82" r="35" fill="#4f46e5"/>
+<circle cx="696" cy="82" r="35" fill="none" stroke="#fff" stroke-opacity=".35" stroke-width="1.5" stroke-dasharray="2 4"/>
+<text x="696" y="94" font-size="30" font-weight="800" fill="#ffffff" text-anchor="middle" letter-spacing="-.5">3M</text>
+<g clip-path="url(#k2)"><rect class="sh" style="animation-delay:1.8s" x="688" y="42" width="14" height="80" fill="#fff" opacity=".35"/></g></g>
+<text x="752" y="68" font-size="15" font-weight="700" fill="#090d16">Staff of the 3 Months</text>
+<text class="m" x="752" y="88" font-size="11" fill="#4f46e5">KMTEDI UGM · 2025</text>
+<text x="752" y="108" font-size="11.5" fill="#5b6478">For improving EatsTedi, the</text>
+<text x="752" y="124" font-size="11.5" fill="#5b6478">canteen app</text></g>
+</svg>

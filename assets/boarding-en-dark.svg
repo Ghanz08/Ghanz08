@@ -1,0 +1,50 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="250" viewBox="0 0 960 250" role="img">
+<style>
+text{font-family:system-ui,-apple-system,'Segoe UI',Roboto,Helvetica,Arial,sans-serif}
+.m{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,'Liberation Mono',monospace}
+@keyframes appear{from{opacity:0;transform:translateY(6px)}}
+@keyframes blink{50%{opacity:0}}
+@keyframes draw{to{stroke-dashoffset:0}}
+@keyframes pop{from{opacity:0;transform:scale(.4)}}
+@keyframes fly{from{transform:translateX(0)}to{transform:translateX(262px)}}
+.fly{animation:fly 5.5s ease-in-out infinite alternate}
+@media (prefers-reduced-motion:reduce){*{animation:none!important}}
+</style>
+<title>Boarding pass: Ghani Zulhusni Bahri, SOFTWARE ENG. · UGM, 4+ YEARS, 10+ PROJECTS, GEMASTIK XVIII, 4+ TECH ORGS</title><defs><clipPath id="c"><rect x="0" y="0" width="960" height="250" rx="18"/></clipPath>
+<linearGradient id="hd" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#4f46e5"/><stop offset="1" stop-color="#818cf8"/></linearGradient></defs>
+<rect x=".5" y=".5" width="959" height="249" rx="18" fill="#161b22" stroke="#30363d"/>
+<g clip-path="url(#c)"><rect width="960" height="42" fill="url(#hd)"/></g>
+<path d="M13 0 L-3 -9 L-1 0 L-3 9 Z M3 -3 L-6 -14 L-8 -14 L-3 -2 Z M3 3 L-6 14 L-8 14 L-3 2 Z" transform="translate(34 21) scale(.9)" fill="#0d1117"/>
+<text class="m" x="56" y="26" font-size="12" font-weight="700" letter-spacing="2" fill="#0d1117">GLIDESLOPE AIR</text>
+<text class="m" x="700" y="26" font-size="11" letter-spacing="2" fill="#0d1117" text-anchor="end" opacity=".9">BOARDING PASS</text>
+
+<g style="animation:appear .5s .1s ease-out both">
+<text class="m" x="32" y="92" font-size="9.5" letter-spacing="1" fill="#8b949e">FROM</text>
+<text x="32" y="126" font-size="44" font-weight="700" fill="#e6edf3" letter-spacing="-1">SMK</text>
+<text class="m" x="32" y="144" font-size="10.5" fill="#8b949e">SMK RPL · 2021</text>
+<text class="m" x="520" y="92" font-size="9.5" letter-spacing="1" fill="#8b949e" text-anchor="end">TO</text>
+<text x="520" y="126" font-size="44" font-weight="700" fill="#818cf8" letter-spacing="-1" text-anchor="end">SWE</text>
+<text class="m" x="520" y="144" font-size="10.5" fill="#8b949e" text-anchor="end">Software Engineer · 2028</text></g>
+<line x1="168" x2="392" y1="108" y2="108" stroke="#4f46e5" stroke-width="2" stroke-dasharray="3 7" stroke-linecap="round"/>
+<g transform="translate(196 108)"><g class="fly"><path d="M13 0 L-3 -9 L-1 0 L-3 9 Z M3 -3 L-6 -14 L-8 -14 L-3 -2 Z M3 3 L-6 14 L-8 14 L-3 2 Z" fill="#818cf8"/></g></g>
+
+<g style="animation:appear .5s .5s ease-out both"><text class="m" x="32" y="176" font-size="9.5" letter-spacing="1" fill="#8b949e">PASSENGER</text>
+<text class="m" x="32" y="196" font-size="14" font-weight="700" fill="#e6edf3">GHANI ZULHUSNI BAHRI</text><text class="m" x="300" y="176" font-size="9.5" letter-spacing="1" fill="#8b949e">PROGRAM</text>
+<text class="m" x="300" y="196" font-size="14" font-weight="700" fill="#e6edf3">SOFTWARE ENG. · UGM</text></g>
+<g style="animation:appear .5s .7s ease-out both"><text class="m" x="32" y="214" font-size="9.5" letter-spacing="1" fill="#8b949e">EXPERIENCE</text>
+<text class="m" x="32" y="234" font-size="14" font-weight="700" fill="#e6edf3">4+ YEARS</text><text class="m" x="212" y="214" font-size="9.5" letter-spacing="1" fill="#8b949e">SHIPPED</text>
+<text class="m" x="212" y="234" font-size="14" font-weight="700" fill="#e6edf3">10+ PROJECTS</text><text class="m" x="392" y="214" font-size="9.5" letter-spacing="1" fill="#8b949e">FINALIST</text>
+<text class="m" x="392" y="234" font-size="14" font-weight="700" fill="#e6edf3">GEMASTIK XVIII</text><text class="m" x="560" y="214" font-size="9.5" letter-spacing="1" fill="#8b949e">ORGANISATIONS</text>
+<text class="m" x="560" y="234" font-size="14" font-weight="700" fill="#e6edf3">4+ TECH ORGS</text></g>
+
+<line x1="728" x2="728" y1="14" y2="236" stroke="#30363d" stroke-dasharray="4 5"/>
+<path d="M716 0 A12 12 0 0 0 740 0 Z" fill="#0d1117" stroke="#30363d"/><path d="M716 250 A12 12 0 0 1 740 250 Z" fill="#0d1117" stroke="#30363d"/>
+<g style="animation:appear .5s .9s ease-out both">
+<text class="m" x="756" y="72" font-size="9.5" letter-spacing="1" fill="#8b949e">GATE</text>
+<text x="756" y="104" font-size="30" font-weight="700" fill="#e6edf3" letter-spacing="-.5">GZ-2028</text>
+<text class="m" x="756" y="128" font-size="10.5" fill="#8b949e">UGM · YOGYAKARTA</text>
+<rect x="756" y="156" width="1" height="44" fill="#e6edf3"/><rect x="759" y="156" width="1" height="44" fill="#e6edf3"/><rect x="763" y="156" width="1" height="44" fill="#e6edf3"/><rect x="767" y="156" width="1" height="44" fill="#e6edf3"/><rect x="771" y="156" width="1" height="44" fill="#e6edf3"/><rect x="775" y="156" width="1" height="44" fill="#e6edf3"/><rect x="778" y="156" width="1" height="44" fill="#e6edf3"/><rect x="781" y="156" width="1" height="44" fill="#e6edf3"/><rect x="783" y="156" width="1" height="44" fill="#e6edf3"/><rect x="786" y="156" width="1" height="44" fill="#e6edf3"/><rect x="789" y="156" width="1" height="44" fill="#e6edf3"/><rect x="791" y="156" width="1" height="44" fill="#e6edf3"/><rect x="793" y="156" width="1" height="44" fill="#e6edf3"/><rect x="797" y="156" width="1" height="44" fill="#e6edf3"/><rect x="800" y="156" width="1" height="44" fill="#e6edf3"/><rect x="803" y="156" width="1" height="44" fill="#e6edf3"/><rect x="807" y="156" width="1" height="44" fill="#e6edf3"/><rect x="810" y="156" width="1" height="44" fill="#e6edf3"/><rect x="812" y="156" width="1" height="44" fill="#e6edf3"/><rect x="816" y="156" width="1" height="44" fill="#e6edf3"/><rect x="819" y="156" width="1" height="44" fill="#e6edf3"/><rect x="823" y="156" width="1" height="44" fill="#e6edf3"/><rect x="827" y="156" width="1" height="44" fill="#e6edf3"/><rect x="831" y="156" width="1" height="44" fill="#e6edf3"/><rect x="835" y="156" width="1" height="44" fill="#e6edf3"/><rect x="837" y="156" width="1" height="44" fill="#e6edf3"/><rect x="841" y="156" width="1" height="44" fill="#e6edf3"/><rect x="845" y="156" width="1" height="44" fill="#e6edf3"/><rect x="849" y="156" width="1" height="44" fill="#e6edf3"/><rect x="853" y="156" width="1" height="44" fill="#e6edf3"/><rect x="856" y="156" width="1" height="44" fill="#e6edf3"/><rect x="858" y="156" width="1" height="44" fill="#e6edf3"/><rect x="862" y="156" width="1" height="44" fill="#e6edf3"/><rect x="865" y="156" width="1" height="44" fill="#e6edf3"/><rect x="868" y="156" width="1" height="44" fill="#e6edf3"/><rect x="870" y="156" width="1" height="44" fill="#e6edf3"/><rect x="874" y="156" width="1" height="44" fill="#e6edf3"/><rect x="876" y="156" width="1" height="44" fill="#e6edf3"/><rect x="880" y="156" width="1" height="44" fill="#e6edf3"/><rect x="884" y="156" width="1" height="44" fill="#e6edf3"/><rect x="887" y="156" width="1" height="44" fill="#e6edf3"/><rect x="891" y="156" width="1" height="44" fill="#e6edf3"/><rect x="895" y="156" width="1" height="44" fill="#e6edf3"/><rect x="897" y="156" width="1" height="44" fill="#e6edf3"/><rect x="901" y="156" width="1" height="44" fill="#e6edf3"/><rect x="905" y="156" width="1" height="44" fill="#e6edf3"/><rect x="909" y="156" width="1" height="44" fill="#e6edf3"/><rect x="911" y="156" width="1" height="44" fill="#e6edf3"/><rect x="915" y="156" width="1" height="44" fill="#e6edf3"/><rect x="918" y="156" width="1" height="44" fill="#e6edf3"/><rect x="921" y="156" width="1" height="44" fill="#e6edf3"/><rect x="923" y="156" width="1" height="44" fill="#e6edf3"/>
+<circle cx="762" cy="222" r="5" fill="#34d399" style="animation:blink 1.4s steps(1) infinite"/>
+<text class="m" x="774" y="226" font-size="12" font-weight="700" fill="#34d399">BOARDING</text>
+<text class="m" x="756" y="242" font-size="10" fill="#8b949e">open to opportunities</text></g>
+</svg>

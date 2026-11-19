@@ -24,11 +24,11 @@ const T = {
   en: {
     other: "<sub>English | [Bahasa Indonesia](README.id.md)</sub>",
     intro: "I study software engineering at Universitas Gadjah Mada in Yogyakarta and build products end to end: the data model, the API, the interface, the deployment, and an AI model in the loop when it actually earns its place. Registration platforms, inventory systems and mobile apps that real people log into, not demos.",
-    act: "Activity", actNote: "Drawn from my public GitHub data by a daily workflow ([`scripts/stats.mjs`](scripts/stats.mjs)). No third-party widgets.",
+    act: "Activity", actNote: "Every building is a day and its height is that day's commits. Drawn daily from my public GitHub data by [`scripts/stats.mjs`](scripts/stats.mjs), no third-party widgets.",
     ship: "Shipped", shipNote: "Things real people use, or could. Tap a card.",
-    path: "Path", stack: "Stack",
+    path: "Route", stack: "Stack",
     lead: "Leading and teaching", leadNote: "Each lane is an organisation, each bar a role, measured in months. Solid is where I am now.",
-    rec: "Recognition",
+    rec: "Recognition", dep: "Departures", depNote: "The latest commit in each of my most recently active public repos. Refreshed daily.",
     recs: ["**GEMASTIK XVIII finalist** (2025): national finals of Indonesia's largest student ICT competition, Software Development division, with team OTW JUARAA.",
       "**IFEST Unpad hackathon, top 15** (2026): national finals.",
       "**Staff of the 3 Months** (2025): KMTEDI UGM, for improving EatsTedi, the internal canteen app."],
@@ -37,11 +37,11 @@ const T = {
   id: {
     other: "<sub>[English](README.md) | Bahasa Indonesia</sub>",
     intro: "Saya kuliah Teknologi Rekayasa Perangkat Lunak di Universitas Gadjah Mada, Yogyakarta, dan membangun produk dari ujung ke ujung: model data, API, antarmuka, deployment, plus model AI bila memang layak dipakai. Platform pendaftaran, sistem inventori, dan aplikasi mobile yang dipakai orang sungguhan, bukan sekadar demo.",
-    act: "Aktivitas", actNote: "Digambar dari data GitHub publik saya oleh workflow harian ([`scripts/stats.mjs`](scripts/stats.mjs)). Tanpa widget pihak ketiga.",
+    act: "Aktivitas", actNote: "Satu gedung satu hari, tingginya jumlah commit hari itu. Digambar tiap hari dari data GitHub publik oleh [`scripts/stats.mjs`](scripts/stats.mjs), tanpa widget pihak ketiga.",
     ship: "Karya", shipNote: "Yang dipakai orang sungguhan, atau bisa dipakai. Ketuk kartunya.",
-    path: "Perjalanan", stack: "Stack",
+    path: "Rute", stack: "Stack",
     lead: "Memimpin dan mengajar", leadNote: "Satu lajur satu organisasi, satu batang satu peran, dihitung per bulan. Yang pekat adalah peran saya sekarang.",
-    rec: "Penghargaan",
+    rec: "Penghargaan", dep: "Keberangkatan", depNote: "Commit terbaru di tiap repo publik yang paling baru aktif. Diperbarui tiap hari.",
     recs: ["**Finalis GEMASTIK XVIII** (2025): final nasional kompetisi ICT mahasiswa terbesar di Indonesia, divisi Pengembangan Perangkat Lunak, bersama tim OTW JUARAA.",
       "**Hackathon IFEST Unpad, 15 besar** (2026): final nasional.",
       "**Staff of the 3 Months** (2025): KMTEDI UGM, atas perbaikan EatsTedi, aplikasi kantin internal."],
@@ -57,13 +57,7 @@ ${d.other}
 
 ${d.intro}
 
-${pic("whoami-" + sfx, "4+ years coding, 10+ projects shipped, GEMASTIK XVIII finalist, 4+ tech organisations")}
-
-### ${d.act}
-
-${pic("stats", "GitHub activity: contributions, repositories and languages")}
-
-<sub>${d.actNote}</sub>
+${pic("boarding-" + sfx, "Boarding pass: Ghani Zulhusni Bahri, software engineering at UGM, 4+ years, 10+ projects, GEMASTIK XVIII finalist")}
 
 ### ${d.ship}
 
@@ -71,13 +65,19 @@ ${d.shipNote}
 
 ${grid()}
 
+### ${d.act}
+
+${pic("stats", "GitHub activity: contributions, repositories and languages")}
+
+<sub>${d.actNote}</sub>
+
 ### ${d.path}
 
-${pic("timeline", "Timeline from 2021 to now")}
+${pic("route", "Flight route from SMK in 2021 to graduation in 2028")}
 
 ### ${d.stack}
 
-${pic("stack", "Languages, frameworks, data and infrastructure I work with")}
+${pic("periodic", "Periodic table of the languages, frameworks, data tools and infrastructure I work with")}
 
 ### ${d.lead}
 
@@ -87,7 +87,13 @@ ${pic("roles", "Roles by organisation from 2024 to 2026")}
 
 ### ${d.rec}
 
-${d.recs.map((x) => "- " + x).join("\n")}
+${pic("pins-" + sfx, "Enamel pins: GEMASTIK XVIII national finalist, IFEST Unpad top 15, Staff of the 3 Months")}
+
+### ${d.dep}
+
+${pic("board", "Departures board listing my latest commits")}
+
+<sub>${d.depNote}</sub>
 
 <br>
 

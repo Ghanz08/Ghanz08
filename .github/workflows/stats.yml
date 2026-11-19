@@ -4,7 +4,7 @@ on:
   workflow_dispatch:
   push:
     branches: [main]
-    paths: [scripts/stats.mjs, scripts/theme.mjs, .github/workflows/stats.yml]
+    paths: [scripts/stats.mjs, scripts/board.mjs, scripts/theme.mjs, .github/workflows/stats.yml]
 permissions:
   contents: write
 concurrency: { group: stats, cancel-in-progress: true }
@@ -20,7 +20,7 @@ jobs:
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add assets/stats-dark.svg assets/stats-light.svg
+          git add assets/stats-dark.svg assets/stats-light.svg assets/board-dark.svg assets/board-light.svg
           git diff --cached --quiet && exit 0
           git commit -m "stats: perbarui aktivitas"
           git push

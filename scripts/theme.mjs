@@ -2,11 +2,11 @@
 export const themes = {
   light: {
     bg: "#fbfbfe", card: "#ffffff", line: "#e2e5f0", grid: "#eef0f8", fg: "#090d16", muted: "#5b6478",
-    accent: "#4f46e5", accent2: "#818cf8", soft: "#eef0ff", good: "#10b981",
+    accent: "#4f46e5", accent2: "#818cf8", soft: "#eef0ff", good: "#10b981", page: "#ffffff", on: "#ffffff",
   },
   dark: {
     bg: "#0d1117", card: "#161b22", line: "#30363d", grid: "#161b22", fg: "#e6edf3", muted: "#8b949e",
-    accent: "#818cf8", accent2: "#4f46e5", soft: "#1c2140", good: "#34d399",
+    accent: "#818cf8", accent2: "#4f46e5", soft: "#1c2140", good: "#34d399", page: "#0d1117", on: "#0d1117",
   },
 };
 
@@ -44,3 +44,6 @@ export function monogram(x, y, cell, color) {
   }));
   return out;
 }
+
+/** Pesawat kecil menghadap kanan, berpusat di (0,0). */
+export const PLANE = "M13 0 L-3 -9 L-1 0 L-3 9 Z M3 -3 L-6 -14 L-8 -14 L-3 -2 Z M3 3 L-6 14 L-8 14 L-3 2 Z";

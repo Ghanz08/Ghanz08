@@ -1,0 +1,51 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="300" viewBox="0 0 960 300" role="img">
+<style>
+text{font-family:system-ui,-apple-system,'Segoe UI',Roboto,Helvetica,Arial,sans-serif}
+.m{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,'Liberation Mono',monospace}
+@keyframes appear{from{opacity:0;transform:translateY(6px)}}
+@keyframes blink{50%{opacity:0}}
+@keyframes draw{to{stroke-dashoffset:0}}
+@keyframes pop{from{opacity:0;transform:scale(.4)}}
+.past{stroke-dasharray:1400;stroke-dashoffset:1400;animation:draw 2.6s .3s ease-out forwards}
+.n{transform-box:fill-box;transform-origin:center}
+@keyframes drift{from{transform:translateX(-30px)}to{transform:translateX(30px)}}.cloud{animation:drift 14s ease-in-out infinite alternate}
+@media (prefers-reduced-motion:reduce){*{animation:none!important}}
+</style>
+<title>Flight route 2021 to 2028: SMK, Jogja Media Web, UGM, TED and GEMASTIK, ASSETS UGM, graduation</title><defs><pattern id="g" width="40" height="40" patternUnits="userSpaceOnUse"><path d="M40 0H0V40" fill="none" stroke="#161b22"/></pattern></defs>
+<rect x=".5" y=".5" width="959" height="299" rx="16" fill="#161b22" stroke="#30363d"/><rect x="1" y="1" width="958" height="298" rx="16" fill="url(#g)"/>
+<g class="cloud" opacity=".07" fill="#fff"><ellipse cx="150" cy="60" rx="70" ry="14"/><ellipse cx="190" cy="52" rx="44" ry="12"/><ellipse cx="640" cy="258" rx="80" ry="13"/><ellipse cx="610" cy="250" rx="44" ry="11"/></g>
+<text class="m" x="28" y="34" font-size="10.5" letter-spacing="2" fill="#8b949e">ROUTE · 2021 → 2028</text>
+<path d="M762 188 C812.3,181.0 870.3,99.7 892 82" fill="none" stroke="#8b949e" stroke-width="2.5" stroke-dasharray="2 8" stroke-linecap="round" opacity=".8"/>
+<path d="M70 222 C98.3,208.0 183.0,139.3 240 138 C297.0,136.7 353.7,216.3 412 214 C470.3,211.7 531.7,128.3 590 124 C648.3,119.7 711.7,195.0 762 188" fill="none" stroke="#818cf8" stroke-width="3" stroke-linecap="round" class="past"/>
+<g style="animation:appear .5s 0.50s ease-out both">
+<text class="m" x="70" y="252" font-size="12" font-weight="700" fill="#818cf8" text-anchor="middle">2021</text>
+<text x="70" y="268" font-size="13" font-weight="700" fill="#e6edf3" text-anchor="middle">SMK RPL</text>
+<text class="m" x="70" y="283" font-size="10" fill="#8b949e" text-anchor="middle">Yogyakarta</text></g>
+<circle class="n" cx="70" cy="222" r="7" fill="#818cf8" stroke="#161b22" stroke-width="3"  style="animation:pop .4s 0.50s ease-out both"/>
+<g style="animation:appear .5s 0.90s ease-out both">
+<text class="m" x="240" y="94" font-size="12" font-weight="700" fill="#818cf8" text-anchor="middle">2023</text>
+<text x="240" y="110" font-size="13" font-weight="700" fill="#e6edf3" text-anchor="middle">Jogja Media Web</text>
+<text class="m" x="240" y="125" font-size="10" fill="#8b949e" text-anchor="middle">first real teams</text></g>
+<circle class="n" cx="240" cy="138" r="7" fill="#818cf8" stroke="#161b22" stroke-width="3"  style="animation:pop .4s 0.90s ease-out both"/>
+<g style="animation:appear .5s 1.30s ease-out both">
+<text class="m" x="412" y="244" font-size="12" font-weight="700" fill="#818cf8" text-anchor="middle">2024</text>
+<text x="412" y="260" font-size="13" font-weight="700" fill="#e6edf3" text-anchor="middle">UGM</text>
+<text class="m" x="412" y="275" font-size="10" fill="#8b949e" text-anchor="middle">GDGoC · KOMATIK · KMTEDI</text></g>
+<circle class="n" cx="412" cy="214" r="7" fill="#818cf8" stroke="#161b22" stroke-width="3"  style="animation:pop .4s 1.30s ease-out both"/>
+<g style="animation:appear .5s 1.70s ease-out both">
+<text class="m" x="590" y="80" font-size="12" font-weight="700" fill="#818cf8" text-anchor="middle">2025</text>
+<text x="590" y="96" font-size="13" font-weight="700" fill="#e6edf3" text-anchor="middle">TED · GEMASTIK XVIII</text>
+<text class="m" x="590" y="111" font-size="10" fill="#8b949e" text-anchor="middle">IT Coordinator, finalist</text></g>
+<circle class="n" cx="590" cy="124" r="7" fill="#818cf8" stroke="#161b22" stroke-width="3"  style="animation:pop .4s 1.70s ease-out both"/>
+<g style="animation:appear .5s 2.10s ease-out both">
+<text class="m" x="762" y="218" font-size="12" font-weight="700" fill="#818cf8" text-anchor="middle">2026</text>
+<text x="762" y="234" font-size="13" font-weight="700" fill="#e6edf3" text-anchor="middle">ASSETS UGM</text>
+<text class="m" x="762" y="249" font-size="10" fill="#8b949e" text-anchor="middle">Head of Tech · IFEST top 15</text></g>
+<circle class="n" cx="762" cy="188" r="7" fill="#818cf8" stroke="#161b22" stroke-width="3"  style="animation:pop .4s 2.10s ease-out both"/>
+<g style="animation:appear .5s 2.50s ease-out both">
+<text class="m" x="892" y="38" font-size="12" font-weight="700" fill="#8b949e" text-anchor="middle">2028</text>
+<text x="892" y="54" font-size="13" font-weight="700" fill="#e6edf3" text-anchor="middle">Graduation</text>
+<text class="m" x="892" y="69" font-size="10" fill="#8b949e" text-anchor="middle">expected, Jul 2028</text></g>
+<circle class="n" cx="892" cy="82" r="7" fill="#161b22" stroke="#8b949e" stroke-width="3" stroke-dasharray="3 3" style="animation:pop .4s 2.50s ease-out both"/>
+<g><path d="M13 0 L-3 -9 L-1 0 L-3 9 Z M3 -3 L-6 -14 L-8 -14 L-3 -2 Z M3 3 L-6 14 L-8 14 L-3 2 Z" fill="#818cf8" stroke="#161b22" stroke-width="1.5" stroke-linejoin="round"><animateMotion dur="11s" repeatCount="indefinite" rotate="auto" path="M70 222 C98.3,208.0 183.0,139.3 240 138 C297.0,136.7 353.7,216.3 412 214 C470.3,211.7 531.7,128.3 590 124 C648.3,119.7 711.7,195.0 762 188 C812.3,181.0 870.3,99.7 892 82"/></path></g>
+</svg>

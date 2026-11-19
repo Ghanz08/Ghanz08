@@ -9,20 +9,10 @@
 Saya kuliah Teknologi Rekayasa Perangkat Lunak di Universitas Gadjah Mada, Yogyakarta, dan membangun produk dari ujung ke ujung: model data, API, antarmuka, deployment, plus model AI bila memang layak dipakai. Platform pendaftaran, sistem inventori, dan aplikasi mobile yang dipakai orang sungguhan, bukan sekadar demo.
 
 <picture>
-  <source media="(prefers-color-scheme: dark)" srcset="assets/whoami-id-dark.svg">
-  <source media="(prefers-color-scheme: light)" srcset="assets/whoami-id-light.svg">
-  <img alt="4+ years coding, 10+ projects shipped, GEMASTIK XVIII finalist, 4+ tech organisations" src="assets/whoami-id-dark.svg" width="100%">
+  <source media="(prefers-color-scheme: dark)" srcset="assets/boarding-id-dark.svg">
+  <source media="(prefers-color-scheme: light)" srcset="assets/boarding-id-light.svg">
+  <img alt="Boarding pass: Ghani Zulhusni Bahri, software engineering at UGM, 4+ years, 10+ projects, GEMASTIK XVIII finalist" src="assets/boarding-id-dark.svg" width="100%">
 </picture>
-
-### Aktivitas
-
-<picture>
-  <source media="(prefers-color-scheme: dark)" srcset="assets/stats-dark.svg">
-  <source media="(prefers-color-scheme: light)" srcset="assets/stats-light.svg">
-  <img alt="GitHub activity: contributions, repositories and languages" src="assets/stats-dark.svg" width="100%">
-</picture>
-
-<sub>Digambar dari data GitHub publik saya oleh workflow harian ([`scripts/stats.mjs`](scripts/stats.mjs)). Tanpa widget pihak ketiga.</sub>
 
 ### Karya
 
@@ -79,20 +69,30 @@ Yang dipakai orang sungguhan, atau bisa dipakai. Ketuk kartunya.
   </tr>
 </table>
 
-### Perjalanan
+### Aktivitas
 
 <picture>
-  <source media="(prefers-color-scheme: dark)" srcset="assets/timeline-dark.svg">
-  <source media="(prefers-color-scheme: light)" srcset="assets/timeline-light.svg">
-  <img alt="Timeline from 2021 to now" src="assets/timeline-dark.svg" width="100%">
+  <source media="(prefers-color-scheme: dark)" srcset="assets/stats-dark.svg">
+  <source media="(prefers-color-scheme: light)" srcset="assets/stats-light.svg">
+  <img alt="GitHub activity: contributions, repositories and languages" src="assets/stats-dark.svg" width="100%">
+</picture>
+
+<sub>Satu gedung satu hari, tingginya jumlah commit hari itu. Digambar tiap hari dari data GitHub publik oleh [`scripts/stats.mjs`](scripts/stats.mjs), tanpa widget pihak ketiga.</sub>
+
+### Rute
+
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="assets/route-dark.svg">
+  <source media="(prefers-color-scheme: light)" srcset="assets/route-light.svg">
+  <img alt="Flight route from SMK in 2021 to graduation in 2028" src="assets/route-dark.svg" width="100%">
 </picture>
 
 ### Stack
 
 <picture>
-  <source media="(prefers-color-scheme: dark)" srcset="assets/stack-dark.svg">
-  <source media="(prefers-color-scheme: light)" srcset="assets/stack-light.svg">
-  <img alt="Languages, frameworks, data and infrastructure I work with" src="assets/stack-dark.svg" width="100%">
+  <source media="(prefers-color-scheme: dark)" srcset="assets/periodic-dark.svg">
+  <source media="(prefers-color-scheme: light)" srcset="assets/periodic-light.svg">
+  <img alt="Periodic table of the languages, frameworks, data tools and infrastructure I work with" src="assets/periodic-dark.svg" width="100%">
 </picture>
 
 ### Memimpin dan mengajar
@@ -107,9 +107,21 @@ Yang dipakai orang sungguhan, atau bisa dipakai. Ketuk kartunya.
 
 ### Penghargaan
 
-- **Finalis GEMASTIK XVIII** (2025): final nasional kompetisi ICT mahasiswa terbesar di Indonesia, divisi Pengembangan Perangkat Lunak, bersama tim OTW JUARAA.
-- **Hackathon IFEST Unpad, 15 besar** (2026): final nasional.
-- **Staff of the 3 Months** (2025): KMTEDI UGM, atas perbaikan EatsTedi, aplikasi kantin internal.
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="assets/pins-id-dark.svg">
+  <source media="(prefers-color-scheme: light)" srcset="assets/pins-id-light.svg">
+  <img alt="Enamel pins: GEMASTIK XVIII national finalist, IFEST Unpad top 15, Staff of the 3 Months" src="assets/pins-id-dark.svg" width="100%">
+</picture>
+
+### Keberangkatan
+
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="assets/board-dark.svg">
+  <source media="(prefers-color-scheme: light)" srcset="assets/board-light.svg">
+  <img alt="Departures board listing my latest commits" src="assets/board-dark.svg" width="100%">
+</picture>
+
+<sub>Commit terbaru di tiap repo publik yang paling baru aktif. Diperbarui tiap hari.</sub>
 
 <br>
 

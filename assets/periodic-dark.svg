@@ -1,0 +1,142 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="280" viewBox="0 0 960 280" role="img">
+<style>
+text{font-family:system-ui,-apple-system,'Segoe UI',Roboto,Helvetica,Arial,sans-serif}
+.m{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,'Liberation Mono',monospace}
+@keyframes appear{from{opacity:0;transform:translateY(6px)}}
+@keyframes blink{50%{opacity:0}}
+@keyframes draw{to{stroke-dashoffset:0}}
+@keyframes pop{from{opacity:0;transform:scale(.4)}}
+
+@media (prefers-reduced-motion:reduce){*{animation:none!important}}
+</style>
+<title>Periodic table of my stack: TypeScript, Go, PHP, Python, Kotlin, Java, Dart, Next.js, React, NestJS, Laravel, Vue, Flutter, PostgreSQL, MySQL, Redis, Supabase, Prisma, Docker, Actions, Caddy, Linux, Vercel, Applied AI, Vision</title><rect x=".5" y=".5" width="959" height="279" rx="16" fill="#161b22" stroke="#30363d"/>
+<text class="m" x="14" y="30" font-size="10.5" letter-spacing="2" fill="#8b949e">THE PERIODIC TABLE OF MY STACK</text>
+<g style="animation:appear .45s 0.10s ease-out both">
+<rect x="12" y="46" width="66" height="84" rx="9" fill="#818cf8" fill-opacity=".12" stroke="#818cf8" stroke-width="1.5"/>
+<text class="m" x="19" y="62" font-size="9.5" fill="#818cf8" opacity=".85">1</text>
+<text x="45" y="98" font-size="28" font-weight="700" fill="#818cf8" text-anchor="middle" letter-spacing="-.5">Ts</text>
+<text class="m" x="45" y="118" font-size="9" fill="#e6edf3" text-anchor="middle">TypeScript</text></g>
+<g style="animation:appear .45s 0.15s ease-out both">
+<rect x="84.6" y="46" width="66" height="84" rx="9" fill="#818cf8" fill-opacity=".12" stroke="#818cf8" stroke-width="1.5"/>
+<text class="m" x="91.6" y="62" font-size="9.5" fill="#818cf8" opacity=".85">2</text>
+<text x="117.6" y="98" font-size="28" font-weight="700" fill="#818cf8" text-anchor="middle" letter-spacing="-.5">Go</text>
+<text class="m" x="117.6" y="118" font-size="9" fill="#e6edf3" text-anchor="middle">Go</text></g>
+<g style="animation:appear .45s 0.19s ease-out both">
+<rect x="157.2" y="46" width="66" height="84" rx="9" fill="#818cf8" fill-opacity=".12" stroke="#818cf8" stroke-width="1.5"/>
+<text class="m" x="164.2" y="62" font-size="9.5" fill="#818cf8" opacity=".85">3</text>
+<text x="190.2" y="98" font-size="28" font-weight="700" fill="#818cf8" text-anchor="middle" letter-spacing="-.5">Ph</text>
+<text class="m" x="190.2" y="118" font-size="9" fill="#e6edf3" text-anchor="middle">PHP</text></g>
+<g style="animation:appear .45s 0.24s ease-out both">
+<rect x="229.79999999999998" y="46" width="66" height="84" rx="9" fill="#818cf8" fill-opacity=".12" stroke="#818cf8" stroke-width="1.5"/>
+<text class="m" x="236.79999999999998" y="62" font-size="9.5" fill="#818cf8" opacity=".85">4</text>
+<text x="262.79999999999995" y="98" font-size="28" font-weight="700" fill="#818cf8" text-anchor="middle" letter-spacing="-.5">Py</text>
+<text class="m" x="262.79999999999995" y="118" font-size="9" fill="#e6edf3" text-anchor="middle">Python</text></g>
+<g style="animation:appear .45s 0.28s ease-out both">
+<rect x="302.4" y="46" width="66" height="84" rx="9" fill="#818cf8" fill-opacity=".12" stroke="#818cf8" stroke-width="1.5"/>
+<text class="m" x="309.4" y="62" font-size="9.5" fill="#818cf8" opacity=".85">5</text>
+<text x="335.4" y="98" font-size="28" font-weight="700" fill="#818cf8" text-anchor="middle" letter-spacing="-.5">Kt</text>
+<text class="m" x="335.4" y="118" font-size="9" fill="#e6edf3" text-anchor="middle">Kotlin</text></g>
+<g style="animation:appear .45s 0.32s ease-out both">
+<rect x="375" y="46" width="66" height="84" rx="9" fill="#818cf8" fill-opacity=".12" stroke="#818cf8" stroke-width="1.5"/>
+<text class="m" x="382" y="62" font-size="9.5" fill="#818cf8" opacity=".85">6</text>
+<text x="408" y="98" font-size="28" font-weight="700" fill="#818cf8" text-anchor="middle" letter-spacing="-.5">Jv</text>
+<text class="m" x="408" y="118" font-size="9" fill="#e6edf3" text-anchor="middle">Java</text></g>
+<g style="animation:appear .45s 0.37s ease-out both">
+<rect x="447.59999999999997" y="46" width="66" height="84" rx="9" fill="#818cf8" fill-opacity=".12" stroke="#818cf8" stroke-width="1.5"/>
+<text class="m" x="454.59999999999997" y="62" font-size="9.5" fill="#818cf8" opacity=".85">7</text>
+<text x="480.59999999999997" y="98" font-size="28" font-weight="700" fill="#818cf8" text-anchor="middle" letter-spacing="-.5">Da</text>
+<text class="m" x="480.59999999999997" y="118" font-size="9" fill="#e6edf3" text-anchor="middle">Dart</text></g>
+<g style="animation:appear .45s 0.42s ease-out both">
+<rect x="520.1999999999999" y="46" width="66" height="84" rx="9" fill="#38bdf8" fill-opacity=".12" stroke="#38bdf8" stroke-width="1.5"/>
+<text class="m" x="527.1999999999999" y="62" font-size="9.5" fill="#38bdf8" opacity=".85">8</text>
+<text x="553.1999999999999" y="98" font-size="28" font-weight="700" fill="#38bdf8" text-anchor="middle" letter-spacing="-.5">Nx</text>
+<text class="m" x="553.1999999999999" y="118" font-size="9" fill="#e6edf3" text-anchor="middle">Next.js</text></g>
+<g style="animation:appear .45s 0.46s ease-out both">
+<rect x="592.8" y="46" width="66" height="84" rx="9" fill="#38bdf8" fill-opacity=".12" stroke="#38bdf8" stroke-width="1.5"/>
+<text class="m" x="599.8" y="62" font-size="9.5" fill="#38bdf8" opacity=".85">9</text>
+<text x="625.8" y="98" font-size="28" font-weight="700" fill="#38bdf8" text-anchor="middle" letter-spacing="-.5">Re</text>
+<text class="m" x="625.8" y="118" font-size="9" fill="#e6edf3" text-anchor="middle">React</text></g>
+<g style="animation:appear .45s 0.51s ease-out both">
+<rect x="665.4" y="46" width="66" height="84" rx="9" fill="#38bdf8" fill-opacity=".12" stroke="#38bdf8" stroke-width="1.5"/>
+<text class="m" x="672.4" y="62" font-size="9.5" fill="#38bdf8" opacity=".85">10</text>
+<text x="698.4" y="98" font-size="28" font-weight="700" fill="#38bdf8" text-anchor="middle" letter-spacing="-.5">Ns</text>
+<text class="m" x="698.4" y="118" font-size="9" fill="#e6edf3" text-anchor="middle">NestJS</text></g>
+<g style="animation:appear .45s 0.55s ease-out both">
+<rect x="738" y="46" width="66" height="84" rx="9" fill="#38bdf8" fill-opacity=".12" stroke="#38bdf8" stroke-width="1.5"/>
+<text class="m" x="745" y="62" font-size="9.5" fill="#38bdf8" opacity=".85">11</text>
+<text x="771" y="98" font-size="28" font-weight="700" fill="#38bdf8" text-anchor="middle" letter-spacing="-.5">Lv</text>
+<text class="m" x="771" y="118" font-size="9" fill="#e6edf3" text-anchor="middle">Laravel</text></g>
+<g style="animation:appear .45s 0.59s ease-out both">
+<rect x="810.5999999999999" y="46" width="66" height="84" rx="9" fill="#38bdf8" fill-opacity=".12" stroke="#38bdf8" stroke-width="1.5"/>
+<text class="m" x="817.5999999999999" y="62" font-size="9.5" fill="#38bdf8" opacity=".85">12</text>
+<text x="843.5999999999999" y="98" font-size="28" font-weight="700" fill="#38bdf8" text-anchor="middle" letter-spacing="-.5">Vu</text>
+<text class="m" x="843.5999999999999" y="118" font-size="9" fill="#e6edf3" text-anchor="middle">Vue</text></g>
+<g style="animation:appear .45s 0.64s ease-out both">
+<rect x="883.1999999999999" y="46" width="66" height="84" rx="9" fill="#38bdf8" fill-opacity=".12" stroke="#38bdf8" stroke-width="1.5"/>
+<text class="m" x="890.1999999999999" y="62" font-size="9.5" fill="#38bdf8" opacity=".85">13</text>
+<text x="916.1999999999999" y="98" font-size="28" font-weight="700" fill="#38bdf8" text-anchor="middle" letter-spacing="-.5">Fl</text>
+<text class="m" x="916.1999999999999" y="118" font-size="9" fill="#e6edf3" text-anchor="middle">Flutter</text></g>
+<g style="animation:appear .45s 0.68s ease-out both">
+<rect x="12" y="140" width="66" height="84" rx="9" fill="#fbbf24" fill-opacity=".12" stroke="#fbbf24" stroke-width="1.5"/>
+<text class="m" x="19" y="156" font-size="9.5" fill="#fbbf24" opacity=".85">14</text>
+<text x="45" y="192" font-size="28" font-weight="700" fill="#fbbf24" text-anchor="middle" letter-spacing="-.5">Pg</text>
+<text class="m" x="45" y="212" font-size="9" fill="#e6edf3" text-anchor="middle">PostgreSQL</text></g>
+<g style="animation:appear .45s 0.73s ease-out both">
+<rect x="84.6" y="140" width="66" height="84" rx="9" fill="#fbbf24" fill-opacity=".12" stroke="#fbbf24" stroke-width="1.5"/>
+<text class="m" x="91.6" y="156" font-size="9.5" fill="#fbbf24" opacity=".85">15</text>
+<text x="117.6" y="192" font-size="28" font-weight="700" fill="#fbbf24" text-anchor="middle" letter-spacing="-.5">My</text>
+<text class="m" x="117.6" y="212" font-size="9" fill="#e6edf3" text-anchor="middle">MySQL</text></g>
+<g style="animation:appear .45s 0.77s ease-out both">
+<rect x="157.2" y="140" width="66" height="84" rx="9" fill="#fbbf24" fill-opacity=".12" stroke="#fbbf24" stroke-width="1.5"/>
+<text class="m" x="164.2" y="156" font-size="9.5" fill="#fbbf24" opacity=".85">16</text>
+<text x="190.2" y="192" font-size="28" font-weight="700" fill="#fbbf24" text-anchor="middle" letter-spacing="-.5">Rd</text>
+<text class="m" x="190.2" y="212" font-size="9" fill="#e6edf3" text-anchor="middle">Redis</text></g>
+<g style="animation:appear .45s 0.82s ease-out both">
+<rect x="229.79999999999998" y="140" width="66" height="84" rx="9" fill="#fbbf24" fill-opacity=".12" stroke="#fbbf24" stroke-width="1.5"/>
+<text class="m" x="236.79999999999998" y="156" font-size="9.5" fill="#fbbf24" opacity=".85">17</text>
+<text x="262.79999999999995" y="192" font-size="28" font-weight="700" fill="#fbbf24" text-anchor="middle" letter-spacing="-.5">Sb</text>
+<text class="m" x="262.79999999999995" y="212" font-size="9" fill="#e6edf3" text-anchor="middle">Supabase</text></g>
+<g style="animation:appear .45s 0.86s ease-out both">
+<rect x="302.4" y="140" width="66" height="84" rx="9" fill="#fbbf24" fill-opacity=".12" stroke="#fbbf24" stroke-width="1.5"/>
+<text class="m" x="309.4" y="156" font-size="9.5" fill="#fbbf24" opacity=".85">18</text>
+<text x="335.4" y="192" font-size="28" font-weight="700" fill="#fbbf24" text-anchor="middle" letter-spacing="-.5">Pr</text>
+<text class="m" x="335.4" y="212" font-size="9" fill="#e6edf3" text-anchor="middle">Prisma</text></g>
+<g style="animation:appear .45s 0.91s ease-out both">
+<rect x="375" y="140" width="66" height="84" rx="9" fill="#4ade80" fill-opacity=".12" stroke="#4ade80" stroke-width="1.5"/>
+<text class="m" x="382" y="156" font-size="9.5" fill="#4ade80" opacity=".85">19</text>
+<text x="408" y="192" font-size="28" font-weight="700" fill="#4ade80" text-anchor="middle" letter-spacing="-.5">Dk</text>
+<text class="m" x="408" y="212" font-size="9" fill="#e6edf3" text-anchor="middle">Docker</text></g>
+<g style="animation:appear .45s 0.95s ease-out both">
+<rect x="447.59999999999997" y="140" width="66" height="84" rx="9" fill="#4ade80" fill-opacity=".12" stroke="#4ade80" stroke-width="1.5"/>
+<text class="m" x="454.59999999999997" y="156" font-size="9.5" fill="#4ade80" opacity=".85">20</text>
+<text x="480.59999999999997" y="192" font-size="28" font-weight="700" fill="#4ade80" text-anchor="middle" letter-spacing="-.5">Ga</text>
+<text class="m" x="480.59999999999997" y="212" font-size="9" fill="#e6edf3" text-anchor="middle">Actions</text></g>
+<g style="animation:appear .45s 1.00s ease-out both">
+<rect x="520.1999999999999" y="140" width="66" height="84" rx="9" fill="#4ade80" fill-opacity=".12" stroke="#4ade80" stroke-width="1.5"/>
+<text class="m" x="527.1999999999999" y="156" font-size="9.5" fill="#4ade80" opacity=".85">21</text>
+<text x="553.1999999999999" y="192" font-size="28" font-weight="700" fill="#4ade80" text-anchor="middle" letter-spacing="-.5">Cd</text>
+<text class="m" x="553.1999999999999" y="212" font-size="9" fill="#e6edf3" text-anchor="middle">Caddy</text></g>
+<g style="animation:appear .45s 1.04s ease-out both">
+<rect x="592.8" y="140" width="66" height="84" rx="9" fill="#4ade80" fill-opacity=".12" stroke="#4ade80" stroke-width="1.5"/>
+<text class="m" x="599.8" y="156" font-size="9.5" fill="#4ade80" opacity=".85">22</text>
+<text x="625.8" y="192" font-size="28" font-weight="700" fill="#4ade80" text-anchor="middle" letter-spacing="-.5">Lx</text>
+<text class="m" x="625.8" y="212" font-size="9" fill="#e6edf3" text-anchor="middle">Linux</text></g>
+<g style="animation:appear .45s 1.09s ease-out both">
+<rect x="665.4" y="140" width="66" height="84" rx="9" fill="#4ade80" fill-opacity=".12" stroke="#4ade80" stroke-width="1.5"/>
+<text class="m" x="672.4" y="156" font-size="9.5" fill="#4ade80" opacity=".85">23</text>
+<text x="698.4" y="192" font-size="28" font-weight="700" fill="#4ade80" text-anchor="middle" letter-spacing="-.5">Vc</text>
+<text class="m" x="698.4" y="212" font-size="9" fill="#e6edf3" text-anchor="middle">Vercel</text></g>
+<g style="animation:appear .45s 1.14s ease-out both">
+<rect x="738" y="140" width="66" height="84" rx="9" fill="#c084fc" fill-opacity=".12" stroke="#c084fc" stroke-width="1.5" stroke-dasharray="4 3"/>
+<text class="m" x="745" y="156" font-size="9.5" fill="#c084fc" opacity=".85">24</text>
+<text x="771" y="192" font-size="28" font-weight="700" fill="#c084fc" text-anchor="middle" letter-spacing="-.5">Ai</text>
+<text class="m" x="771" y="212" font-size="9" fill="#e6edf3" text-anchor="middle">Applied AI</text></g>
+<g style="animation:appear .45s 1.18s ease-out both">
+<rect x="810.5999999999999" y="140" width="66" height="84" rx="9" fill="#c084fc" fill-opacity=".12" stroke="#c084fc" stroke-width="1.5" stroke-dasharray="4 3"/>
+<text class="m" x="817.5999999999999" y="156" font-size="9.5" fill="#c084fc" opacity=".85">25</text>
+<text x="843.5999999999999" y="192" font-size="28" font-weight="700" fill="#c084fc" text-anchor="middle" letter-spacing="-.5">Cv</text>
+<text class="m" x="843.5999999999999" y="212" font-size="9" fill="#e6edf3" text-anchor="middle">Vision</text></g>
+<rect x="883.1999999999999" y="140" width="66" height="84" rx="9" fill="none" stroke="#30363d" stroke-dasharray="2 4"/>
+<text class="m" x="916.1999999999999" y="186" font-size="9.5" fill="#8b949e" text-anchor="middle">next?</text>
+<rect x="14" y="240" width="12" height="12" rx="3" fill="#818cf8" fill-opacity=".25" stroke="#818cf8" stroke-width="1.5"/><text class="m" x="32" y="250" font-size="10.5" fill="#8b949e">languages</text><rect x="109.4" y="240" width="12" height="12" rx="3" fill="#38bdf8" fill-opacity=".25" stroke="#38bdf8" stroke-width="1.5"/><text class="m" x="127.4" y="250" font-size="10.5" fill="#8b949e">frameworks</text><rect x="211.4" y="240" width="12" height="12" rx="3" fill="#fbbf24" fill-opacity=".25" stroke="#fbbf24" stroke-width="1.5"/><text class="m" x="229.4" y="250" font-size="10.5" fill="#8b949e">data</text><rect x="273.8" y="240" width="12" height="12" rx="3" fill="#4ade80" fill-opacity=".25" stroke="#4ade80" stroke-width="1.5"/><text class="m" x="291.8" y="250" font-size="10.5" fill="#8b949e">infrastructure</text><rect x="402.2" y="240" width="12" height="12" rx="3" fill="#c084fc" fill-opacity=".25" stroke="#c084fc" stroke-width="1.5"/><text class="m" x="420.2" y="250" font-size="10.5" fill="#8b949e">exploring</text>
+</svg>

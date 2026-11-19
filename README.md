@@ -9,20 +9,10 @@
 I study software engineering at Universitas Gadjah Mada in Yogyakarta and build products end to end: the data model, the API, the interface, the deployment, and an AI model in the loop when it actually earns its place. Registration platforms, inventory systems and mobile apps that real people log into, not demos.
 
 <picture>
-  <source media="(prefers-color-scheme: dark)" srcset="assets/whoami-en-dark.svg">
-  <source media="(prefers-color-scheme: light)" srcset="assets/whoami-en-light.svg">
-  <img alt="4+ years coding, 10+ projects shipped, GEMASTIK XVIII finalist, 4+ tech organisations" src="assets/whoami-en-dark.svg" width="100%">
+  <source media="(prefers-color-scheme: dark)" srcset="assets/boarding-en-dark.svg">
+  <source media="(prefers-color-scheme: light)" srcset="assets/boarding-en-light.svg">
+  <img alt="Boarding pass: Ghani Zulhusni Bahri, software engineering at UGM, 4+ years, 10+ projects, GEMASTIK XVIII finalist" src="assets/boarding-en-dark.svg" width="100%">
 </picture>
-
-### Activity
-
-<picture>
-  <source media="(prefers-color-scheme: dark)" srcset="assets/stats-dark.svg">
-  <source media="(prefers-color-scheme: light)" srcset="assets/stats-light.svg">
-  <img alt="GitHub activity: contributions, repositories and languages" src="assets/stats-dark.svg" width="100%">
-</picture>
-
-<sub>Drawn from my public GitHub data by a daily workflow ([`scripts/stats.mjs`](scripts/stats.mjs)). No third-party widgets.</sub>
 
 ### Shipped
 
@@ -79,20 +69,30 @@ Things real people use, or could. Tap a card.
   </tr>
 </table>
 
-### Path
+### Activity
 
 <picture>
-  <source media="(prefers-color-scheme: dark)" srcset="assets/timeline-dark.svg">
-  <source media="(prefers-color-scheme: light)" srcset="assets/timeline-light.svg">
-  <img alt="Timeline from 2021 to now" src="assets/timeline-dark.svg" width="100%">
+  <source media="(prefers-color-scheme: dark)" srcset="assets/stats-dark.svg">
+  <source media="(prefers-color-scheme: light)" srcset="assets/stats-light.svg">
+  <img alt="GitHub activity: contributions, repositories and languages" src="assets/stats-dark.svg" width="100%">
+</picture>
+
+<sub>Every building is a day and its height is that day's commits. Drawn daily from my public GitHub data by [`scripts/stats.mjs`](scripts/stats.mjs), no third-party widgets.</sub>
+
+### Route
+
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="assets/route-dark.svg">
+  <source media="(prefers-color-scheme: light)" srcset="assets/route-light.svg">
+  <img alt="Flight route from SMK in 2021 to graduation in 2028" src="assets/route-dark.svg" width="100%">
 </picture>
 
 ### Stack
 
 <picture>
-  <source media="(prefers-color-scheme: dark)" srcset="assets/stack-dark.svg">
-  <source media="(prefers-color-scheme: light)" srcset="assets/stack-light.svg">
-  <img alt="Languages, frameworks, data and infrastructure I work with" src="assets/stack-dark.svg" width="100%">
+  <source media="(prefers-color-scheme: dark)" srcset="assets/periodic-dark.svg">
+  <source media="(prefers-color-scheme: light)" srcset="assets/periodic-light.svg">
+  <img alt="Periodic table of the languages, frameworks, data tools and infrastructure I work with" src="assets/periodic-dark.svg" width="100%">
 </picture>
 
 ### Leading and teaching
@@ -107,9 +107,21 @@ Things real people use, or could. Tap a card.
 
 ### Recognition
 
-- **GEMASTIK XVIII finalist** (2025): national finals of Indonesia's largest student ICT competition, Software Development division, with team OTW JUARAA.
-- **IFEST Unpad hackathon, top 15** (2026): national finals.
-- **Staff of the 3 Months** (2025): KMTEDI UGM, for improving EatsTedi, the internal canteen app.
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="assets/pins-en-dark.svg">
+  <source media="(prefers-color-scheme: light)" srcset="assets/pins-en-light.svg">
+  <img alt="Enamel pins: GEMASTIK XVIII national finalist, IFEST Unpad top 15, Staff of the 3 Months" src="assets/pins-en-dark.svg" width="100%">
+</picture>
+
+### Departures
+
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="assets/board-dark.svg">
+  <source media="(prefers-color-scheme: light)" srcset="assets/board-light.svg">
+  <img alt="Departures board listing my latest commits" src="assets/board-dark.svg" width="100%">
+</picture>
+
+<sub>The latest commit in each of my most recently active public repos. Refreshed daily.</sub>
 
 <br>
 

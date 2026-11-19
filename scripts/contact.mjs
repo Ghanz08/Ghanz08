@@ -1,34 +1,27 @@
-import { esc, svg, themes } from "./theme.mjs";
+import { esc, svg, themes, PLANE } from "./theme.mjs";
 
-const G = [".#####.", "#.....#", "#......", "#..####", "#.....#", "#.....#", ".#####."];
-const Z = ["#######", ".....##", "....##.", "...##..", "..##...", "##.....", "#######"];
 const copy = {
-  en: { cmd: "./contact --status", live: "available for opportunities", a: "Got a messy workflow?", b: "Let's make it dependable." },
-  id: { cmd: "./contact --status", live: "terbuka untuk peluang", a: "Punya alur kerja berantakan?", b: "Kita bikin jadi andal." },
+  en: { cmd: "cleared for takeoff?", live: "available for opportunities", a: "Got a messy workflow?", b: "Let's make it dependable." },
+  id: { cmd: "siap lepas landas?", live: "terbuka untuk peluang", a: "Punya alur kerja berantakan?", b: "Kita bikin jadi andal." },
 };
 
 export function contact(name, lang) {
-  const t = themes[name], c = copy[lang], cell = 13, mx = 790, my = 62;
-  let px = "";
-  for (let j = 0; j < 7; j++) for (let i = 0; i < 7; i++) {
-    const g = G[j][i] === "#", z = Z[j][i] === "#";
-    if (!g && !z) continue;
-    const anim = g && z ? "" : g ? ' style="animation:toG 7s ease-in-out infinite"' : ' style="animation:toZ 7s ease-in-out infinite"';
-    px += `<rect x="${mx + i * cell}" y="${my + j * cell}" width="${cell - 2}" height="${cell - 2}" rx="2" fill="${t.accent}"${anim}/>`;
-  }
-  const css = `@keyframes toG{0%,38%{opacity:1}50%,88%{opacity:0}100%{opacity:1}}
-@keyframes toZ{0%,38%{opacity:0}50%,88%{opacity:1}100%{opacity:0}}
+  const t = themes[name], c = copy[lang];
+  const lights = Array.from({ length: 16 }, (_, i) => `<rect x="${430 + i * 30}" y="213" width="16" height="3" rx="1.5" fill="${t.accent}" style="animation:run 1.6s ${(i * 0.1).toFixed(1)}s linear infinite"/>`).join("");
+  const css = `@keyframes run{0%{opacity:.15}20%{opacity:1}60%,100%{opacity:.15}}
 @keyframes pulse{0%{r:5;opacity:.8}100%{r:13;opacity:0}}.pulse{animation:pulse 1.8s ease-out infinite}`;
   const body = `<defs><pattern id="g" width="32" height="32" patternUnits="userSpaceOnUse"><path d="M32 0H0V32" fill="none" stroke="${t.grid}"/></pattern></defs>
 <rect x=".5" y=".5" width="959" height="229" rx="16" fill="${t.bg}" stroke="${t.line}"/><rect x="1" y="1" width="958" height="228" rx="16" fill="url(#g)"/>
 <g style="animation:appear .5s .1s ease-out both">
-<text class="m" x="48" y="52" font-size="13" fill="${t.muted}"><tspan fill="${t.good}">➜</tspan> <tspan fill="${t.accent}" font-weight="700">~</tspan> $ ${esc(c.cmd)}</text>
+<text class="m" x="48" y="52" font-size="13" fill="${t.muted}">${esc(c.cmd)}</text>
 <circle cx="53" cy="80" r="5" fill="${t.good}"/><circle class="pulse" cx="53" cy="80" r="5" fill="none" stroke="${t.good}" stroke-width="1.5"/>
 <text class="m" x="68" y="84" font-size="13" font-weight="700" fill="${t.good}">${esc(c.live)}</text></g>
 <text x="48" y="130" font-size="40" font-weight="700" fill="${t.fg}" letter-spacing="-1" style="animation:appear .5s .4s ease-out both">${esc(c.a)}</text>
 <g style="animation:appear .5s .7s ease-out both"><rect x="48" y="192" width="${Math.round(c.b.length * 19.5)}" height="8" rx="4" fill="${t.accent2}" opacity=".35"/>
 <text x="48" y="184" font-size="40" font-weight="700" fill="${t.accent}" letter-spacing="-1">${esc(c.b)}</text></g>
-${px}`;
+<line x1="410" x2="930" y1="214.5" y2="214.5" stroke="${t.line}"/>${lights}
+<path d="M0 0 L0 0" fill="none"/>
+<g><path d="${PLANE}" transform="scale(1.4)" fill="${t.accent}" stroke="${t.bg}" stroke-width="1.2" stroke-linejoin="round"><animateMotion dur="6s" repeatCount="indefinite" rotate="auto" keyPoints="0;0.55;1" keyTimes="0;0.5;1" calcMode="spline" keySplines="0.4 0 0.6 1;0.2 0.6 0.4 1" path="M430 204 L640 204 C760 204 850 160 940 70"/></path></g>`;
   return svg(960, 230, t, `<title>${esc(c.a + " " + c.b)}</title>${body}`, css);
 }
 
