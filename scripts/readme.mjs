@@ -57,7 +57,7 @@ ${d.other}
 
 ${d.intro}
 
-${pic("boarding-" + sfx, "Boarding pass: Ghani Zulhusni Bahri, software engineering at UGM, 4+ years, 10+ projects, GEMASTIK XVIII finalist")}
+${pic("boarding-" + sfx, "SkyBase boarding pass: Ghani Zulhusni Bahri, software engineering at UGM, 4+ years, 10+ projects, GEMASTIK XVIII finalist")}
 
 ### ${d.ship}
 

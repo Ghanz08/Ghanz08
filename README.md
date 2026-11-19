@@ -11,7 +11,7 @@ I study software engineering at Universitas Gadjah Mada in Yogyakarta and build 
 <picture>
   <source media="(prefers-color-scheme: dark)" srcset="assets/boarding-en-dark.svg">
   <source media="(prefers-color-scheme: light)" srcset="assets/boarding-en-light.svg">
-  <img alt="Boarding pass: Ghani Zulhusni Bahri, software engineering at UGM, 4+ years, 10+ projects, GEMASTIK XVIII finalist" src="assets/boarding-en-dark.svg" width="100%">
+  <img alt="SkyBase boarding pass: Ghani Zulhusni Bahri, software engineering at UGM, 4+ years, 10+ projects, GEMASTIK XVIII finalist" src="assets/boarding-en-dark.svg" width="100%">
 </picture>
 
 ### Shipped

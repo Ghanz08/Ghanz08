@@ -11,7 +11,7 @@ Saya kuliah Teknologi Rekayasa Perangkat Lunak di Universitas Gadjah Mada, Yogya
 <picture>
   <source media="(prefers-color-scheme: dark)" srcset="assets/boarding-id-dark.svg">
   <source media="(prefers-color-scheme: light)" srcset="assets/boarding-id-light.svg">
-  <img alt="Boarding pass: Ghani Zulhusni Bahri, software engineering at UGM, 4+ years, 10+ projects, GEMASTIK XVIII finalist" src="assets/boarding-id-dark.svg" width="100%">
+  <img alt="SkyBase boarding pass: Ghani Zulhusni Bahri, software engineering at UGM, 4+ years, 10+ projects, GEMASTIK XVIII finalist" src="assets/boarding-id-dark.svg" width="100%">
 </picture>
 
 ### Karya
