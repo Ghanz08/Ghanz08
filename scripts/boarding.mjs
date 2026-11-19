@@ -3,12 +3,12 @@ import { logo } from "./logo.mjs";
 
 // Lepas landas di garis lurus. Tiap pesawat: masuk landasan, menunggu sebentar, dipercepat sambil membesar, lalu memudar.
 // Hanya beberapa keyframe dengan cubic-bezier per ruas supaya kecepatannya mulus (bukan puluhan potongan linear).
-// Dua pesawat bergantian; yang kedua baru muncul ketika yang pertama sudah jauh dari garis start.
-const T = 8, PLANES = 2, Y = 113, XS = 146, X0 = 172, X1 = 356;
+// Satu pesawat per siklus: pesawat baru baru muncul setelah yang terbang benar-benar hilang.
+const T = 6.5, PLANES = 1, Y = 113, XS = 146, X0 = 172, X1 = 356;
 const OUT = "cubic-bezier(.2,.75,.3,1)", IN = "cubic-bezier(.5,.04,.9,.55)";
-const px = (y0, y1) => `0%{transform:translate(${XS}px,${y0}px);animation-timing-function:${OUT}}14%{transform:translate(${X0}px,${y0}px)}28%{transform:translate(${X0}px,${y0}px);animation-timing-function:${IN}}86%,100%{transform:translate(${X1}px,${y1}px)}`;
-const ps = (a, b) => `0%{transform:scale(.6)}28%{transform:scale(.6);animation-timing-function:${IN}}86%,100%{transform:scale(${b})}`;
-const po = (m, e) => `0%{opacity:0;animation-timing-function:ease-out}10%{opacity:${m}}28%{opacity:${m};animation-timing-function:ease-in}68%{opacity:${e}}84%,100%{opacity:0}`;
+const px = (y0, y1) => `0%{transform:translate(${XS}px,${y0}px);animation-timing-function:${OUT}}12%{transform:translate(${X0}px,${y0}px)}24%{transform:translate(${X0}px,${y0}px);animation-timing-function:${IN}}88%,100%{transform:translate(${X1}px,${y1}px)}`;
+const ps = (a, b) => `0%{transform:scale(.6)}24%{transform:scale(.6);animation-timing-function:${IN}}88%,100%{transform:scale(${b})}`;
+const po = (m, e) => `0%{opacity:0;animation-timing-function:ease-out}8%{opacity:${m}}24%{opacity:${m};animation-timing-function:ease-in}64%{opacity:${e}}88%,100%{opacity:0}`;
 
 // Warna dan logo sayap diambil dari desain Figma SkyBase.
 const SB = { navy: "#174394", sky: "#54A4D9", mid: "#2a6bc0" };
