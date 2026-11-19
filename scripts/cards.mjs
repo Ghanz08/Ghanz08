@@ -1,4 +1,5 @@
 import { esc, svg, themes } from "./theme.mjs";
+import { logo } from "./logo.mjs";
 
 const wrap = (s, max) => {
   const out = []; let line = "";
@@ -31,7 +32,7 @@ export const projects = [
   { id: "sibudaya", kind: "BACKEND", state: "case study", title: "SIBUDAYA", from: "#6366f1", to: "#2563eb",
     text: "Facilitation system for cultural institutions at UGM: multi-stage approvals with audit trail, role-based access and PDF reports.",
     tags: ["NestJS", "PostgreSQL", "Prisma", "Docker"] },
-  { id: "skybase", kind: "BACKEND", state: "case study", title: "Skybase", from: "#2563eb", to: "#06b6d4",
+  { id: "skybase", kind: "BACKEND", state: "case study", title: "SkyBase", from: "#174394", to: "#54A4D9", mark: true,
     text: "Aircraft parts inventory and warehouse system. Row-level locks keep stock exact when several people check out at once.",
     tags: ["Laravel 11", "MySQL", "Redis", "RBAC"] },
 ];
@@ -46,7 +47,8 @@ export function card(p, name) {
 <rect x="0" y="0" width="6" height="186" rx="3" fill="url(#g)"/>
 <text class="m" x="28" y="34" font-size="10.5" letter-spacing="1" fill="${t.muted}">${esc(p.kind)}</text>
 <text class="m" x="412" y="34" font-size="10.5" fill="${live ? t.good : t.muted}" text-anchor="end">${live ? "● " : ""}${esc(p.state)}</text>
-<text x="28" y="64" font-size="21" font-weight="700" fill="${t.fg}" letter-spacing="-.3">${esc(p.title)}</text>
+${p.mark ? logo(28, 44, 28, name === "dark" ? { main: "#8fb8ea", accent: "#54A4D9" } : { main: "#174394", accent: "#54A4D9" }, "ck")
+  : `<text x="28" y="64" font-size="21" font-weight="700" fill="${t.fg}" letter-spacing="-.3">${esc(p.title)}</text>`}
 ${lines.map((l, i) => `<text x="28" y="${90 + i * 18}" font-size="12.5" fill="${t.muted}">${esc(l)}</text>`).join("")}
 ${pills(p.tags, 28, 148, t)}`;
   return svg(440, 186, t, `<title>${esc(p.title)}</title>${body}`);

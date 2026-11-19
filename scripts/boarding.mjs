@@ -1,9 +1,8 @@
 import { esc, svg, themes, PLANE } from "./theme.mjs";
+import { logo } from "./logo.mjs";
 
 // Warna dan logo sayap diambil dari desain Figma SkyBase.
-const SB = { navy: "#02419b", blue: "#0059d6", bright: "#1677ff", sky: "#8bb8ff" };
-const wing = (x, y, s, c) => `<g transform="translate(${x} ${y}) scale(${s})"><path d="M0 22 C6 8 20 0 40 0 C28 6 20 14 17 30 C12 24 6 22 0 22Z" fill="${c}"/><path d="M6 30 C10 22 18 18 26 18 C20 22 16 28 14 36 C11 33 8 31 6 30Z" fill="${c}" opacity=".55"/></g>`;
-
+const SB = { navy: "#174394", sky: "#54A4D9", mid: "#2a6bc0" };
 const copy = {
   en: { air: "SKYBASE", bp: "BOARDING PASS", pax: "PASSENGER", prog: "PROGRAM", exp: "EXPERIENCE", ship: "SHIPPED", fin: "FINALIST", org: "ORGANISATIONS",
         v: ["GHANI ZULHUSNI BAHRI", "SOFTWARE ENG. · UGM", "4+ YEARS", "10+ PROJECTS", "GEMASTIK XVIII", "4+ TECH ORGS"],
@@ -15,7 +14,7 @@ const copy = {
 
 export function boarding(name, lang) {
   const t = { ...themes[name] }, c = copy[lang], H = 250;
-  const dk = name === "dark"; t.accent = dk ? SB.sky : SB.blue; t.accent2 = dk ? SB.blue : SB.bright; t.soft = dk ? "#10244d" : "#e8f0ff";
+  const dk = name === "dark"; t.accent = dk ? SB.sky : SB.navy; t.accent2 = dk ? SB.mid : SB.sky; t.soft = dk ? "#10244d" : "#e6f0fb";
   let seed = 11, x = 756, bars = "";
   while (x < 926) {
     seed = (seed * 1103515245 + 12345) & 0x7fffffff;
@@ -28,11 +27,10 @@ export function boarding(name, lang) {
   const css = `@keyframes fly{from{transform:translateX(0)}to{transform:translateX(180px)}}
 .fly{animation:fly 5.5s ease-in-out infinite alternate}`;
   const body = `<defs><clipPath id="c"><rect x="0" y="0" width="960" height="${H}" rx="18"/></clipPath>
-<linearGradient id="hd" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="${SB.bright}"/><stop offset="1" stop-color="${SB.navy}"/></linearGradient></defs>
+<linearGradient id="hd" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="${SB.mid}"/><stop offset="1" stop-color="${SB.navy}"/></linearGradient></defs>
 <rect x=".5" y=".5" width="959" height="${H - 1}" rx="18" fill="${t.card}" stroke="${t.line}"/>
 <g clip-path="url(#c)"><rect width="960" height="42" fill="url(#hd)"/></g>
-${wing(26, 9, .5, "#ffffff")}
-<text x="58" y="27" font-size="15" font-weight="800" letter-spacing="1" fill="#ffffff">${c.air}</text>
+${logo(24, 8, 26, { main: "#ffffff", accent: "#cfe6fa" }, "bp")}
 <text class="m" x="700" y="26" font-size="11" letter-spacing="2" fill="#ffffff" text-anchor="end" opacity=".9">${c.bp}</text>
 
 <g style="animation:appear .5s .1s ease-out both">
