@@ -1,0 +1,43 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="270" viewBox="0 0 960 270" role="img">
+<style>
+text{font-family:system-ui,-apple-system,'Segoe UI',Roboto,Helvetica,Arial,sans-serif}
+.m{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,'Liberation Mono',monospace}
+@keyframes appear{from{opacity:0;transform:translateY(6px)}}
+@keyframes blink{50%{opacity:0}}
+@keyframes draw{to{stroke-dashoffset:0}}
+@keyframes pop{from{opacity:0;transform:scale(.4)}}
+.line{stroke-dasharray:900;stroke-dashoffset:900;animation:draw 1.8s .2s ease-out forwards}
+.n{transform-box:fill-box;transform-origin:center}
+@media (prefers-reduced-motion:reduce){*{animation:none!important}}
+</style>
+<title>Timeline 2021 to now: SMK, first teams, UGM, leadership roles, shipping</title><line class="line" x1="30" y1="150" x2="930" y2="150" stroke="#818cf8" stroke-width="3" stroke-linecap="round"/><g style="animation:appear .5s 0.30s ease-out both"><line x1="70" x2="70" y1="158" y2="164" stroke="#30363d"/>
+<text class="m" x="64" y="182" font-size="13" font-weight="700" fill="#818cf8" text-anchor="start">2021</text>
+<text x="64" y="202" font-size="13.5" font-weight="700" fill="#e6edf3" text-anchor="start">SMK Muhammadiyah 1</text>
+<text class="m" x="64" y="220" font-size="10.5" fill="#8b949e" text-anchor="start">Software engineering</text><text class="m" x="64" y="235" font-size="10.5" fill="#8b949e" text-anchor="start">track, Yogyakarta</text></g>
+<circle class="n" cx="70" cy="150" r="6" fill="#161b22" stroke="#818cf8" stroke-width="3" style="animation:pop .4s 0.30s ease-out both"/>
+<g style="animation:appear .5s 0.58s ease-out both"><line x1="250" x2="250" y1="142" y2="84" stroke="#30363d"/>
+<text class="m" x="244" y="26" font-size="13" font-weight="700" fill="#818cf8" text-anchor="start">2023</text>
+<text x="244" y="46" font-size="13.5" font-weight="700" fill="#e6edf3" text-anchor="start">First real teams</text>
+<text class="m" x="244" y="64" font-size="10.5" fill="#8b949e" text-anchor="start">Intern at Jogja Media Web:</text><text class="m" x="244" y="79" font-size="10.5" fill="#8b949e" text-anchor="start">3 full-stack projects</text></g>
+<circle class="n" cx="250" cy="150" r="6" fill="#161b22" stroke="#818cf8" stroke-width="3" style="animation:pop .4s 0.58s ease-out both"/>
+<g style="animation:appear .5s 0.86s ease-out both"><line x1="430" x2="430" y1="158" y2="164" stroke="#30363d"/>
+<text class="m" x="424" y="182" font-size="13" font-weight="700" fill="#818cf8" text-anchor="start">2024</text>
+<text x="424" y="202" font-size="13.5" font-weight="700" fill="#e6edf3" text-anchor="start">UGM, Software Eng.</text>
+<text class="m" x="424" y="220" font-size="10.5" fill="#8b949e" text-anchor="start">Joined GDGoC, KOMATIK</text><text class="m" x="424" y="235" font-size="10.5" fill="#8b949e" text-anchor="start">and KMTEDI (EatsTedi)</text></g>
+<circle class="n" cx="430" cy="150" r="6" fill="#161b22" stroke="#818cf8" stroke-width="3" style="animation:pop .4s 0.86s ease-out both"/>
+<g style="animation:appear .5s 1.14s ease-out both"><line x1="610" x2="610" y1="142" y2="84" stroke="#30363d"/>
+<text class="m" x="604" y="26" font-size="13" font-weight="700" fill="#818cf8" text-anchor="start">2025</text>
+<text x="604" y="46" font-size="13.5" font-weight="700" fill="#e6edf3" text-anchor="start">Leading, then finals</text>
+<text class="m" x="604" y="64" font-size="10.5" fill="#8b949e" text-anchor="start">TED IT Coordinator</text><text class="m" x="604" y="79" font-size="10.5" fill="#8b949e" text-anchor="start">GEMASTIK XVIII finalist</text></g>
+<circle class="n" cx="610" cy="150" r="6" fill="#161b22" stroke="#818cf8" stroke-width="3" style="animation:pop .4s 1.14s ease-out both"/>
+<g style="animation:appear .5s 1.42s ease-out both"><line x1="790" x2="790" y1="158" y2="164" stroke="#30363d"/>
+<text class="m" x="784" y="182" font-size="13" font-weight="700" fill="#818cf8" text-anchor="start">2026</text>
+<text x="784" y="202" font-size="13.5" font-weight="700" fill="#e6edf3" text-anchor="start">Heading divisions</text>
+<text class="m" x="784" y="220" font-size="10.5" fill="#8b949e" text-anchor="start">Head of Tech @ ASSETS UGM</text><text class="m" x="784" y="235" font-size="10.5" fill="#8b949e" text-anchor="start">IFEST top 15, PAD mentor</text></g>
+<circle class="n" cx="790" cy="150" r="6" fill="#161b22" stroke="#818cf8" stroke-width="3" style="animation:pop .4s 1.42s ease-out both"/>
+<g style="animation:appear .5s 1.70s ease-out both"><line x1="910" x2="910" y1="142" y2="84" stroke="#30363d"/>
+<text class="m" x="916" y="26" font-size="13" font-weight="700" fill="#818cf8" text-anchor="end">now</text>
+<text x="916" y="46" font-size="13.5" font-weight="700" fill="#e6edf3" text-anchor="end">Shipping</text>
+<text class="m" x="916" y="64" font-size="10.5" fill="#8b949e" text-anchor="end">Kost 3g, Glideslope,</text><text class="m" x="916" y="79" font-size="10.5" fill="#8b949e" text-anchor="end">and what comes next</text></g>
+<circle class="n" cx="910" cy="150" r="8" fill="#818cf8" stroke="#818cf8" stroke-width="3" style="animation:pop .4s 1.70s ease-out both"/>
+</svg>

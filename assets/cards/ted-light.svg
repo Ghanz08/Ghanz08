@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="440" height="186" viewBox="0 0 440 186" role="img">
+<style>
+text{font-family:system-ui,-apple-system,'Segoe UI',Roboto,Helvetica,Arial,sans-serif}
+.m{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,'Liberation Mono',monospace}
+@keyframes appear{from{opacity:0;transform:translateY(6px)}}
+@keyframes blink{50%{opacity:0}}
+@keyframes draw{to{stroke-dashoffset:0}}
+@keyframes pop{from{opacity:0;transform:scale(.4)}}
+
+@media (prefers-reduced-motion:reduce){*{animation:none!important}}
+</style>
+<title>Tech Enthusiast Day</title>
+<defs><linearGradient id="g" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#9333ea"/><stop offset="1" stop-color="#4f46e5"/></linearGradient></defs>
+<rect x=".5" y=".5" width="439" height="185" rx="14" fill="#ffffff" stroke="#e2e5f0"/>
+<rect x="0" y="0" width="6" height="186" rx="3" fill="url(#g)"/>
+<text class="m" x="28" y="34" font-size="10.5" letter-spacing="1" fill="#5b6478">PLATFORM</text>
+<text class="m" x="412" y="34" font-size="10.5" fill="#10b981" text-anchor="end">● live</text>
+<text x="28" y="64" font-size="21" font-weight="700" fill="#090d16" letter-spacing="-.3">Tech Enthusiast Day</text>
+<text x="28" y="90" font-size="12.5" fill="#5b6478">Registration platform for a national tech competition with</text><text x="28" y="108" font-size="12.5" fill="#5b6478">thousands of participants. Led an 8-developer team through</text><text x="28" y="126" font-size="12.5" fill="#5b6478">CI/CD and launch.</text>
+<rect x="28" y="148" width="63" height="22" rx="11" fill="#eef0ff"/><text class="m" x="59.5" y="163" font-size="10.5" fill="#4f46e5" text-anchor="middle">Next.js</text><rect x="97" y="148" width="69" height="22" rx="11" fill="#eef0ff"/><text class="m" x="131.5" y="163" font-size="10.5" fill="#4f46e5" text-anchor="middle">Firebase</text><rect x="172" y="148" width="56" height="22" rx="11" fill="#eef0ff"/><text class="m" x="200" y="163" font-size="10.5" fill="#4f46e5" text-anchor="middle">Vercel</text><rect x="234" y="148" width="63" height="22" rx="11" fill="#eef0ff"/><text class="m" x="265.5" y="163" font-size="10.5" fill="#4f46e5" text-anchor="middle">Actions</text>
+</svg>
