@@ -24,7 +24,7 @@ const T = {
   en: {
     other: "<sub>English | [Bahasa Indonesia](README.id.md)</sub>",
     intro: "I study software engineering at Universitas Gadjah Mada in Yogyakarta and build products end to end: the data model, the API, the interface, the deployment, and an AI model in the loop when it actually earns its place. Registration platforms, inventory systems and mobile apps that real people log into, not demos.",
-    act: "Activity", actNote: "Every building is a day and its height is that day's commits. Drawn daily from my public GitHub data by [`scripts/stats.mjs`](scripts/stats.mjs), no third-party widgets.",
+    act: "Activity", actNote: "Drawn daily from my public GitHub data by [`scripts/stats.mjs`](scripts/stats.mjs), no third-party widgets.",
     ship: "Shipped", shipNote: "Things real people use, or could. Tap a card.",
     path: "Route", stack: "Stack",
     lead: "Leading and teaching", leadNote: "Each lane is an organisation, each bar a role, measured in months. Solid is where I am now.",
@@ -37,7 +37,7 @@ const T = {
   id: {
     other: "<sub>[English](README.md) | Bahasa Indonesia</sub>",
     intro: "Saya kuliah Teknologi Rekayasa Perangkat Lunak di Universitas Gadjah Mada, Yogyakarta, dan membangun produk dari ujung ke ujung: model data, API, antarmuka, deployment, plus model AI bila memang layak dipakai. Platform pendaftaran, sistem inventori, dan aplikasi mobile yang dipakai orang sungguhan, bukan sekadar demo.",
-    act: "Aktivitas", actNote: "Satu gedung satu hari, tingginya jumlah commit hari itu. Digambar tiap hari dari data GitHub publik oleh [`scripts/stats.mjs`](scripts/stats.mjs), tanpa widget pihak ketiga.",
+    act: "Aktivitas", actNote: "Digambar tiap hari dari data GitHub publik oleh [`scripts/stats.mjs`](scripts/stats.mjs), tanpa widget pihak ketiga.",
     ship: "Karya", shipNote: "Yang dipakai orang sungguhan, atau bisa dipakai. Ketuk kartunya.",
     path: "Rute", stack: "Stack",
     lead: "Memimpin dan mengajar", leadNote: "Satu lajur satu organisasi, satu batang satu peran, dihitung per bulan. Yang pekat adalah peran saya sekarang.",

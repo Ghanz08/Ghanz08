@@ -77,7 +77,7 @@ Yang dipakai orang sungguhan, atau bisa dipakai. Ketuk kartunya.
   <img alt="GitHub activity: contributions, repositories and languages" src="assets/stats-dark.svg" width="100%">
 </picture>
 
-<sub>Satu gedung satu hari, tingginya jumlah commit hari itu. Digambar tiap hari dari data GitHub publik oleh [`scripts/stats.mjs`](scripts/stats.mjs), tanpa widget pihak ketiga.</sub>
+<sub>Digambar tiap hari dari data GitHub publik oleh [`scripts/stats.mjs`](scripts/stats.mjs), tanpa widget pihak ketiga.</sub>
 
 ### Rute
 

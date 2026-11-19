@@ -77,7 +77,7 @@ Things real people use, or could. Tap a card.
   <img alt="GitHub activity: contributions, repositories and languages" src="assets/stats-dark.svg" width="100%">
 </picture>
 
-<sub>Every building is a day and its height is that day's commits. Drawn daily from my public GitHub data by [`scripts/stats.mjs`](scripts/stats.mjs), no third-party widgets.</sub>
+<sub>Drawn daily from my public GitHub data by [`scripts/stats.mjs`](scripts/stats.mjs), no third-party widgets.</sub>
 
 ### Route
 

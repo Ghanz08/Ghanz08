@@ -11,9 +11,9 @@ const H = { Authorization: `bearer ${token}`, "User-Agent": "profile-stats", Acc
 
 const query = `query($login:String!){ user(login:$login){
   repositories(ownerAffiliations:OWNER, isFork:false, privacy:PUBLIC, first:100){ totalCount
-    nodes{ languages(first:8, orderBy:{field:SIZE,direction:DESC}){ edges{ size node{ name color } } } } }
-  contributionsCollection{ totalCommitContributions totalPullRequestContributions
-    contributionCalendar{ totalContributions weeks{ contributionDays{ contributionCount } } } } } }`;
+    nodes{ stargazerCount languages(first:8, orderBy:{field:SIZE,direction:DESC}){ edges{ size node{ name color } } } } }
+  contributionsCollection{ totalCommitContributions totalPullRequestContributions totalIssueContributions totalRepositoriesWithContributedCommits
+    contributionCalendar{ totalContributions weeks{ contributionDays{ contributionCount date } } } } } }`;
 
 const res = await fetch("https://api.github.com/graphql", { method: "POST", headers: { ...H, "Content-Type": "application/json" }, body: JSON.stringify({ query, variables: { login: LOGIN } }) });
 const json = await res.json();
@@ -38,56 +38,102 @@ const langs = {};
 for (const r of u.repositories.nodes) for (const e of r.languages.edges) if (!SKIP.has(e.node.name))
   (langs[e.node.name] ??= { size: 0, color: e.node.color || "#8b949e" }).size += e.size;
 const total = Object.values(langs).reduce((a, l) => a + l.size, 0);
-const top = Object.entries(langs).sort((a, b) => b[1].size - a[1].size).slice(0, 4);
-const max = Math.max(1, ...weeks.flatMap((w) => w.contributionDays.map((d) => d.contributionCount)));
+const top = Object.entries(langs).sort((a, b) => b[1].size - a[1].size).slice(0, 6);
+const stars = u.repositories.nodes.reduce((a, r) => a + r.stargazerCount, 0);
 const fmt = (n) => n.toLocaleString("en-US");
-const tiles = [[fmt(cc.contributionCalendar.totalContributions), "contributions, last year"], [fmt(cc.totalCommitContributions), "commits"],
-  [fmt(cc.totalPullRequestContributions), "pull requests"], [fmt(u.repositories.totalCount), "public repos"]];
+const days = weeks.flatMap((w) => w.contributionDays);
 
-const shade = (hex, f) => "#" + [1, 3, 5].map((i) => Math.max(0, Math.min(255, Math.round(parseInt(hex.slice(i, i + 2), 16) * f))).toString(16).padStart(2, "0")).join("");
+// Streak: hari berturut-turut dengan kontribusi. Streak berjalan boleh berakhir kemarin kalau hari ini belum ada.
+let longest = { n: 0, end: null }, run = 0;
+for (const d of days) { run = d.contributionCount > 0 ? run + 1 : 0; if (run > longest.n) longest = { n: run, end: d.date }; }
+let cur = 0, curEnd = null, i = days.length - 1;
+if (days[i]?.contributionCount === 0) i--;
+for (; i >= 0 && days[i].contributionCount > 0; i--) { cur++; curEnd ??= days[i].date; }
+const busiest = days.reduce((m, d) => (d.contributionCount > m.contributionCount ? d : m), days[0]);
+const MON = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+const nice = (iso, y) => `${MON[+iso.slice(5, 7) - 1]} ${+iso.slice(8, 10)}${y ? ", " + iso.slice(0, 4) : ""}`;
+
+const nz = days.map((d) => d.contributionCount).filter(Boolean).sort((a, b) => a - b);
+const q = [0.25, 0.5, 0.75].map((p) => nz[Math.floor(p * (nz.length - 1))] ?? 1);
+const level = (c) => (c === 0 ? 0 : c <= q[0] ? 1 : c <= q[1] ? 2 : c <= q[2] ? 3 : 4);
+
+const GREEN = { light: ["#ebedf0", "#9be9a8", "#40c463", "#30a14e", "#216e39"], dark: ["#21262d", "#0e4429", "#006d32", "#26a641", "#39d353"] };
+const stat = [["commit", "Commits (last year)", fmt(cc.totalCommitContributions)], ["pr", "Pull requests", fmt(cc.totalPullRequestContributions)],
+  ["issue", "Issues", fmt(cc.totalIssueContributions)], ["repo", "Public repos", fmt(u.repositories.totalCount)], ["contrib", "Contributed to", fmt(cc.totalRepositoriesWithContributedCommits)]];
+
+function icon(k, x, y, c) {
+  const a = `fill="none" stroke="${c}" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"`;
+  const g = {
+    commit: `<circle cx="8" cy="8" r="3.2" ${a}/><path d="M0.5 8H4.8M11.2 8H15.5" ${a}/>`,
+    pr: `<circle cx="4" cy="3.5" r="1.9" ${a}/><circle cx="4" cy="12.5" r="1.9" ${a}/><circle cx="12" cy="12.5" r="1.9" ${a}/><path d="M4 5.4V10.6M12 10.6V6.5A2 2 0 0 0 10 4.5H8.5" ${a}/>`,
+    issue: `<circle cx="8" cy="8" r="6" ${a}/><circle cx="8" cy="8" r="1" fill="${c}"/>`,
+    repo: `<path d="M3 2.5H12.5V12.5H4.5A1.5 1.5 0 0 0 3 14ZM3 14V2.5M6 12.5V14" ${a}/>`,
+    contrib: `<circle cx="4" cy="3.5" r="1.9" ${a}/><circle cx="4" cy="12.5" r="1.9" ${a}/><circle cx="12" cy="5.5" r="1.9" ${a}/><path d="M4 5.4V10.6M12 7.4A4 4 0 0 1 6.5 10.6" ${a}/>`,
+  }[k];
+  return `<g transform="translate(${x} ${y})">${g}</g>`;
+}
 
 function render(name) {
-  const t = themes[name], dark = name === "dark";
-  const tileSvg = tiles.map(([v, l], i) => {
-    const x = 32 + i * 226;
-    return `<g style="animation:appear .5s ${(i * 0.1).toFixed(1)}s ease-out both"><text class="m" x="${x}" y="52" font-size="30" font-weight="700" fill="${t.fg}">${esc(v)}</text><text class="m" x="${x}" y="74" font-size="11" fill="${t.muted}">${esc(l)}</text></g>`;
+  const t = themes[name], dark = name === "dark", G = GREEN[name], PW = 468;
+  const card = (x, y, w, h) => `<rect x="${x + 0.5}" y="${y + 0.5}" width="${w}" height="${h}" rx="12" fill="${t.card}" stroke="${t.line}"/>`;
+
+  // Kartu statistik
+  const statRows = stat.map(([k, label, v], i) => {
+    const y = 74 + i * 30;
+    return `<g style="animation:appear .45s ${(0.1 + i * 0.08).toFixed(2)}s ease-out both">${icon(k, 28, y - 12, t.accent)}
+<text x="56" y="${y}" font-size="13.5" fill="${t.fg}">${label}</text><text class="m" x="${PW - 24}" y="${y}" font-size="14" font-weight="700" fill="${t.fg}" text-anchor="end">${v}</text></g>`;
   }).join("");
 
-  // Skyline: tiap hari jadi balok; baris belakang digambar lebih dulu, lalu bergeser ke depan.
-  const BW = 11, DX = 5, DY = 4, CX = 15, SX = 6, RY = 11, X0 = 40, Y0 = 196, MAXH = 70;
-  const base = dark ? "#818cf8" : "#4f46e5", flat = dark ? "#2a2f3a" : "#e4e7f2";
-  let city = "";
-  for (let r = 0; r < 7; r++) weeks.forEach((w, c) => {
-    const n = w.contributionDays[r]?.contributionCount ?? 0, h = 2 + Math.sqrt(n / max) * MAXH;
-    const x = X0 + c * CX + r * SX, y = Y0 + r * RY, col = n === 0 ? flat : base;
-    const delay = (0.3 + c * 0.03 + r * 0.02).toFixed(2);
-    city += `<g style="animation:appear .5s ${delay}s ease-out both"><rect x="${x}" y="${y - h}" width="${BW}" height="${h}" fill="${col}"/>` +
-      `<polygon points="${x},${y - h} ${x + BW},${y - h} ${x + BW + DX},${y - h - DY} ${x + DX},${y - h - DY}" fill="${n === 0 ? shade(flat, dark ? 1.4 : 1.03) : shade(base, 1.25)}"/>` +
-      `<polygon points="${x + BW},${y - h} ${x + BW + DX},${y - h - DY} ${x + BW + DX},${y - DY} ${x + BW},${y}" fill="${n === 0 ? shade(flat, .85) : shade(base, .7)}"/></g>`;
+  // Kartu bahasa: bar bertumpuk + legenda 2 kolom
+  const BW = PW - 48; let bx = 24 + PW + 24 + 0;
+  const L0 = 24 + PW + 24, segs = top.map(([n, l]) => { const w = Math.max(3, (l.size / total) * BW), s = `<rect x="${bx.toFixed(1)}" y="58" width="${w.toFixed(1)}" height="10" fill="${l.color}"/>`; bx += w; return s; }).join("");
+  const legend = top.map(([n, l], i) => {
+    const col = i % 2, row = Math.floor(i / 2), x = L0 + col * (BW / 2), y = 104 + row * 28;
+    return `<g style="animation:appear .45s ${(0.3 + i * 0.07).toFixed(2)}s ease-out both"><circle cx="${x + 5}" cy="${y - 4}" r="5" fill="${l.color}"/><text x="${x + 18}" y="${y}" font-size="13" fill="${t.fg}">${esc(n)}</text><text class="m" x="${x + BW / 2 - 18}" y="${y}" font-size="12" fill="${t.muted}" text-anchor="end">${((l.size / total) * 100).toFixed(1)}%</text></g>`;
+  }).join("");
+
+  // Streak (tiga kolom, cincin di tengah)
+  const SY = 232, col = (i) => 160 + i * 320;
+  const ring = Math.min(1, cur / Math.max(longest.n, 1)), R = 38, C = 2 * Math.PI * R;
+  const streak = `${[0, 1, 2].map((i) => i ? `<line x1="${i * 320}" x2="${i * 320}" y1="${SY + 22}" y2="${SY + 100}" stroke="${t.line}"/>` : "").join("")}
+<g style="animation:appear .5s .3s ease-out both"><text x="${col(0)}" y="${SY + 54}" font-size="34" font-weight="700" fill="${t.fg}" text-anchor="middle">${fmt(cc.contributionCalendar.totalContributions)}</text><text x="${col(0)}" y="${SY + 78}" font-size="13" fill="${t.fg}" text-anchor="middle">Total contributions</text><text class="m" x="${col(0)}" y="${SY + 96}" font-size="10.5" fill="${t.muted}" text-anchor="middle">${nice(days[0].date, true)} – ${nice(days.at(-1).date, true)}</text></g>
+<g style="animation:appear .5s .4s ease-out both"><circle cx="${col(1)}" cy="${SY + 48}" r="${R}" fill="none" stroke="${t.line}" stroke-width="5"/>
+<circle cx="${col(1)}" cy="${SY + 48}" r="${R}" fill="none" stroke="${t.accent}" stroke-width="5" stroke-linecap="round" stroke-dasharray="${(C * ring).toFixed(1)} ${C.toFixed(1)}" transform="rotate(-90 ${col(1)} ${SY + 48})"/>
+<text x="${col(1)}" y="${SY + 58}" font-size="28" font-weight="700" fill="${t.fg}" text-anchor="middle">${cur}</text></g>
+<text x="${col(1)}" y="${SY + 104}" font-size="13" fill="${t.fg}" text-anchor="middle" style="animation:appear .5s .45s ease-out both">Current streak</text>
+<g style="animation:appear .5s .5s ease-out both"><text x="${col(2)}" y="${SY + 54}" font-size="34" font-weight="700" fill="${t.fg}" text-anchor="middle">${longest.n}</text><text x="${col(2)}" y="${SY + 78}" font-size="13" fill="${t.fg}" text-anchor="middle">Longest streak</text><text class="m" x="${col(2)}" y="${SY + 96}" font-size="10.5" fill="${t.muted}" text-anchor="middle">ends ${nice(longest.end ?? days[0].date)}</text></g>`;
+
+  // Heatmap standar GitHub + pesawat kertas yang melintas dan penanda hari tersibuk
+  const HX = 64, HY = 424, CELL = 13, GAP = 3, STEP = CELL + GAP;
+  let cells = "", months = "", lastM = -1, bx2 = 0, by2 = 0;
+  weeks.forEach((w, c) => {
+    const first = w.contributionDays[0]; const m = +first.date.slice(5, 7);
+    if (m !== lastM && c < weeks.length - 2) { months += `<text class="m" x="${HX + c * STEP}" y="${HY - 10}" font-size="10.5" fill="${t.muted}">${MON[m - 1]}</text>`; lastM = m; }
+    w.contributionDays.forEach((d, r) => {
+      const x = HX + c * STEP, y = HY + r * STEP;
+      if (d.date === busiest.date) { bx2 = x + CELL / 2; by2 = y; }
+      cells += `<rect x="${x}" y="${y}" width="${CELL}" height="${CELL}" rx="2.5" fill="${G[level(d.contributionCount)]}" style="animation:appear .4s ${(0.2 + c * 0.02).toFixed(2)}s ease-out both"/>`;
+    });
   });
+  const dayLbl = [["Mon", 1], ["Wed", 3], ["Fri", 5]].map(([l, r]) => `<text class="m" x="28" y="${HY + r * STEP + 10}" font-size="10" fill="${t.muted}">${l}</text>`).join("");
+  const lg = [0, 1, 2, 3, 4].map((l, i) => `<rect x="${786 + i * 16}" y="${HY + 7 * STEP + 8}" width="${CELL}" height="${CELL}" rx="2.5" fill="${G[l]}"/>`).join("");
+  const call = `<line x1="${bx2}" x2="${bx2}" y1="${by2 - 2}" y2="${HY - 26}" stroke="${t.muted}" stroke-dasharray="2 3"/><text class="m" x="${Math.min(bx2, 820)}" y="${HY - 30}" font-size="10.5" fill="${t.fg}" text-anchor="${bx2 > 820 ? "end" : "middle"}">busiest day · ${nice(busiest.date)} · ${busiest.contributionCount}</text>`;
+  const flight = `M${HX} ${HY + 7 * STEP + 34} C${HX + 240} ${HY + 7 * STEP + 20} ${HX + 540} ${HY + 7 * STEP + 48} ${HX + 53 * STEP - 4} ${HY + 7 * STEP + 28}`;
+  const plane = `<path d="${flight}" fill="none" stroke="${t.muted}" stroke-width="1.2" stroke-dasharray="2 6" opacity=".45"/><g opacity=".95"><path d="M0 0 L16 -5 L11 0 L16 5 Z M11 0 L5 0 L7 -3 Z" fill="${t.accent}"><animateMotion dur="9s" repeatCount="indefinite" rotate="auto" path="${flight}"/></path></g>`;
 
-  // Dial: busur 240 derajat; panjang isi = porsi bahasa terhadap total.
-  const R = 32, arc = (a) => { const rad = (Math.PI / 180) * (150 + a); return [(R * Math.cos(rad)).toFixed(1), (R * Math.sin(rad)).toFixed(1)]; };
-  const dials = top.map(([n, l], i) => {
-    const cx = 130 + i * 233, cy = 356, pct = l.size / total, a1 = 240 * Math.min(0.999, pct);
-    const [sx, sy] = arc(0), [ex, ey] = arc(240), [fx, fy] = arc(a1), big = a1 > 180 ? 1 : 0;
-    return `<g transform="translate(${cx} ${cy})"><g style="animation:appear .6s ${(1.2 + i * 0.15).toFixed(2)}s ease-out both">
-<path d="M${sx} ${sy} A${R} ${R} 0 1 1 ${ex} ${ey}" fill="none" stroke="${t.line}" stroke-width="7" stroke-linecap="round"/>
-<path d="M${sx} ${sy} A${R} ${R} 0 ${big} 1 ${fx} ${fy}" fill="none" stroke="${l.color}" stroke-width="7" stroke-linecap="round"/>
-<text class="m" y="6" font-size="17" font-weight="700" fill="${t.fg}" text-anchor="middle">${(pct * 100).toFixed(0)}%</text>
-<text class="m" y="52" font-size="11.5" fill="${t.muted}" text-anchor="middle">${esc(n)}</text></g></g>`;
-  }).join("");
-
-  const body = `<rect x=".5" y=".5" width="959" height="447" rx="14" fill="${t.card}" stroke="${t.line}"/>
-${tileSvg}${city}
-<text class="m" x="32" y="300" font-size="10.5" letter-spacing="2" fill="${t.muted}">INSTRUMENTS · MOST-USED LANGUAGES, PUBLIC REPOS</text>
-${dials}
-<text class="m" x="928" y="436" font-size="10" fill="${t.muted}" text-anchor="end" opacity=".7">updated ${new Date().toISOString().slice(0, 10)} · generated by scripts/stats.mjs</text>`;
-  return svg(960, 448, t, `<title>GitHub activity of ${esc(LOGIN)} drawn as a city skyline, with language gauges</title>${body}`, "");
+  const body = `${card(0, 0, PW, 214)}${card(24 + PW, 0, PW - 1, 214)}${card(0, 230, 959, 118)}${card(0, 364, 959, 214)}
+<text x="28" y="38" font-size="15" font-weight="700" fill="${t.accent}">GitHub stats</text>${statRows}
+<text x="${L0}" y="38" font-size="15" font-weight="700" fill="${t.accent}">Top languages</text>${segs}${legend}
+${streak}
+<text x="28" y="396" font-size="15" font-weight="700" fill="${t.accent}">Contributions in the last year</text>${months}${dayLbl}${cells}${call}
+<text class="m" x="770" y="${HY + 7 * STEP + 19}" font-size="10" fill="${t.muted}" text-anchor="end">Less</text>${lg}<text class="m" x="${786 + 5 * 16 + 4}" y="${HY + 7 * STEP + 19}" font-size="10" fill="${t.muted}">More</text>
+${plane}
+`;
+  return svg(960, 580, t, `<title>GitHub stats of ${esc(LOGIN)}: contributions, streaks, top languages and a year of activity</title>${body}`, "");
 }
 
 for (const n of ["dark", "light"]) {
   writeFileSync(`assets/stats-${n}.svg`, render(n));
   writeFileSync(`assets/board-${n}.svg`, board(n, pushes));
 }
-console.log("stats:", tiles.map((t) => t.join(" ")).join(" | "), "|", top.map(([n]) => n).join(","), "| pushes:", pushes.length);
+console.log("stats:", `${cc.contributionCalendar.totalContributions} contributions | streak ${cur}/${longest.n} | busiest ${busiest.date} ${busiest.contributionCount} | stars ${stars} | langs ${top.map(([n]) => n).join(",")} | pushes ${pushes.length}`);
